@@ -11,19 +11,19 @@
 <?php
 $products = array(
     array(
-        "name" => "Product 1",
+        "name" => "Development 1",
         "description" => "This is a small description about the development.",
         "pics" => array("a-sm.jpg", "b-.jpg", "c-sm.jpg"),
         "total_products" => 20
     ),
     array(
-        "name" => "Product 2",
+        "name" => "Development 2",
         "description" => "This is a small description about the development.",
         "pics" => array("a-sm.jpg", "b-.jpg", "c-sm.jpg"),
         "total_products" => 15
     ),
     array(
-        "name" => "Product 3",
+        "name" => "Development 3",
         "description" => "This is a small description about the development.",
         "pics" => array("a-sm.jpg", "b-.jpg", "c-sm.jpg"),
         "total_products" => 12
