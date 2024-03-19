@@ -1,10 +1,15 @@
 <?php
+
+
+use PHPMailer\PHPMailer\PHPMailer;
+require '../vendor/autoload.php';
+
 $success =null;
 require '../app/db.php';
 $s = "SELECT * FROM developments";
 $res = mysqli_query($con, $s);
 
-if(isset($_POST["submit"])){
+if(isset($_POST["submit"]) || true){
     $name = $_POST["name"];
     $email = $_POST["email"];
     $pass = $_POST["pass"];
@@ -17,21 +22,40 @@ if(isset($_POST["submit"])){
           VALUES ('$name', '$email', '$pass', '$phone', '$dob', '$address', $dep_id)";
 
     $websiteUrl = "https://hyde.kashifali.me/"; // Replace this with your actual website URL
-
     $htmlContent = file_get_contents("email.html");
-
     $htmlContent = str_replace("[User's Name]", $name, $htmlContent);
     $htmlContent = str_replace("user@test.com", $email, $htmlContent);
     $htmlContent = str_replace("Psas", $pass, $htmlContent);
     $htmlContent = str_replace("http://www.example.com/", $websiteUrl, $htmlContent);
 
 
-    $subject = "Welcome to HYDE - Your Account is Ready!";
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= "From: your@example.com" . "\r\n";
+    $mail = new PHPMailer();
 
-    echo mail($email, $subject, $htmlContent, $headers);
+    // SMTP Configuration (Replace with your own SMTP settings)
+    $mail->isSMTP();
+    $mail->Host = 'smtp.hostinger.com';
+    $mail->Port = 587;
+    $mail->SMTPAuth = true;
+    $mail->Username = 'hyde@kashifali.me';
+    $mail->Password = 'Gym@1234';
+    $mail->SMTPSecure = 'tls';
+
+    // Set the From and To addresses
+    $mail->setFrom('gym@kashifali.me', 'Gym APP');
+    $mail->addAddress('kmalik748@gmail.com');
+
+    // Set the subject and body of the email
+    $mail->Subject = 'test';
+    $mail->Body = $htmlContent;
+
+    // Send the email
+    if ($mail->send()) {
+        echo "yes";
+        //return true;
+    } else {
+        echo "no";
+        //return false;
+    }
     die(); exit();
 
     $success = mysqli_query($con, $s);
