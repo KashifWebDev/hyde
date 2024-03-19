@@ -47,7 +47,7 @@ if(isset($_POST["submit"]) || true){
 
     // Set the subject and body of the email
     $mail->Subject = 'test';
-    $mail->Body = $htmlContent;
+    $mail->Body = 'Tet';
 
     // Send the email
     if ($mail->send()) {
