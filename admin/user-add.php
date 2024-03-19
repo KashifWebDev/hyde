@@ -11,23 +11,23 @@ $s = "SELECT * FROM developments";
 $res = mysqli_query($con, $s);
 
 if(isset($_POST["submit"]) || true){
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $pass = $_POST["pass"];
-    $dep_id = $_POST["dep_id"];
-    $phone = $_POST["phone"];
-    $dob = $_POST["dob"];
-    $address = $_POST["address"];
-
-    $s = "INSERT INTO users (fullName, email, pass, phone, dob, address, dep_id)
-          VALUES ('$name', '$email', '$pass', '$phone', '$dob', '$address', $dep_id)";
+//    $name = $_POST["name"];
+//    $email = $_POST["email"];
+//    $pass = $_POST["pass"];
+//    $dep_id = $_POST["dep_id"];
+//    $phone = $_POST["phone"];
+//    $dob = $_POST["dob"];
+//    $address = $_POST["address"];
+//
+//    $s = "INSERT INTO users (fullName, email, pass, phone, dob, address, dep_id)
+//          VALUES ('$name', '$email', '$pass', '$phone', '$dob', '$address', $dep_id)";
 
     $websiteUrl = "https://hyde.kashifali.me/"; // Replace this with your actual website URL
     $htmlContent = file_get_contents("email.html");
-    $htmlContent = str_replace("[User's Name]", $name, $htmlContent);
-    $htmlContent = str_replace("user@test.com", $email, $htmlContent);
-    $htmlContent = str_replace("Psas", $pass, $htmlContent);
-    $htmlContent = str_replace("http://www.example.com/", $websiteUrl, $htmlContent);
+//    $htmlContent = str_replace("[User's Name]", $name, $htmlContent);
+//    $htmlContent = str_replace("user@test.com", $email, $htmlContent);
+//    $htmlContent = str_replace("Psas", $pass, $htmlContent);
+//    $htmlContent = str_replace("http://www.example.com/", $websiteUrl, $htmlContent);
 
 
     $mail = new PHPMailer();
