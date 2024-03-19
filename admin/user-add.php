@@ -11,56 +11,46 @@ $s = "SELECT * FROM developments";
 $res = mysqli_query($con, $s);
 
 if(isset($_POST["submit"]) || true){
-//    $name = $_POST["name"];
-//    $email = $_POST["email"];
-//    $pass = $_POST["pass"];
-//    $dep_id = $_POST["dep_id"];
-//    $phone = $_POST["phone"];
-//    $dob = $_POST["dob"];
-//    $address = $_POST["address"];
-//
-//    $s = "INSERT INTO users (fullName, email, pass, phone, dob, address, dep_id)
-//          VALUES ('$name', '$email', '$pass', '$phone', '$dob', '$address', $dep_id)";
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $pass = $_POST["pass"];
+    $dep_id = $_POST["dep_id"];
+    $phone = $_POST["phone"];
+    $dob = $_POST["dob"];
+    $address = $_POST["address"];
 
-    $websiteUrl = "https://hyde.kashifali.me/"; // Replace this with your actual website URL
-    $htmlContent = file_get_contents("email.html");
-//    $htmlContent = str_replace("[User's Name]", $name, $htmlContent);
-//    $htmlContent = str_replace("user@test.com", $email, $htmlContent);
-//    $htmlContent = str_replace("Psas", $pass, $htmlContent);
-//    $htmlContent = str_replace("http://www.example.com/", $websiteUrl, $htmlContent);
+    $s = "INSERT INTO users (fullName, email, pass, phone, dob, address, dep_id)
+          VALUES ('$name', '$email', '$pass', '$phone', '$dob', '$address', $dep_id)";
 
 
-    $to = "kmalik748@gmail.com";
-    $subject = "Your Subject Here";
+
+    $subject = "Welcome to Hyde - Your Account is Ready!";
     $message = "<!DOCTYPE html>
 <html lang='en'>
 <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Email Template</title>
+    <title>Welcome to Hyde - Your Account is Ready!</title>
 </head>
 <body>
-    <p>This is a sample HTML email.</p>
-    <p>You can include your HTML content here.</p>
+    <h3>Welcome to HYDE!</h3>
+    <p>Dear ".$name."</p>
+    <p>We're delighted to welcome you to Hyde!</p>
+    <p>Your account has been successfully created by our admin team, and we're thrilled to have you join us. Below are your login details:</p>
+    
+    <p><b>Email: </b> ".$email."</p>
+    <p><b>Password: </b> ".$pass."</p>
+    <a href='https://hyde.kashifali.me'>Login Now</a>
 </body>
 </html>";
 
-// To send HTML mail, the Content-type header must be set
+
     $headers  = "MIME-Version: 1.0" . "\r\n";
     $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
+    $headers .= "From: Hyde <info@hyde.com>" . "\r\n"; // Change your_name and your_email
 
-// Additional headers
-    $headers .= "From: Your Name <your_email@example.com>" . "\r\n"; // Change your_name and your_email
+    mail($email, $subject, $message, $headers);
 
-// Send email
-    $mail_sent = mail($to, $subject, $message, $headers);
-
-    if ($mail_sent) {
-        echo "Email sent successfully.";
-    } else {
-        echo "Email sending failed.";
-    }
-    die(); exit();
 
     $success = mysqli_query($con, $s);
 }
