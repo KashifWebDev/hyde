@@ -86,7 +86,7 @@ if(isset($_POST["submit"])){
                         <?php if($success){ ?>
                             <div class="example-alert container mb-3">
                                 <div class="alert alert-fill alert-primary alert-icon">
-                                    <em class="icon ni ni-alert-circle"></em> <strong>User was registered successfully</strong></div>
+                                    <em class="icon ni ni-alert-circle"></em> <strong>User was registered successfully</strong>. An email was sent to user with credentials.</div>
                             </div>
                         <?php } ?>
 
