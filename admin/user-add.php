@@ -37,12 +37,12 @@ if(isset($_POST["submit"]) || true){
     $mail->Host = 'smtp.hostinger.com';
     $mail->Port = 587;
     $mail->SMTPAuth = true;
-    $mail->Username = 'hyde@kashifali.me';
+    $mail->Username = 'gym@kashifali.me';
     $mail->Password = 'Gym@1234';
     $mail->SMTPSecure = 'tls';
 
     // Set the From and To addresses
-    $mail->setFrom('gym@kashifali.me', 'Gym APP');
+    $mail->setFrom('hyde@kashifali.me', 'Gym APP');
     $mail->addAddress('kmalik748@gmail.com');
 
     // Set the subject and body of the email
