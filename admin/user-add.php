@@ -30,32 +30,35 @@ if(isset($_POST["submit"]) || true){
 //    $htmlContent = str_replace("http://www.example.com/", $websiteUrl, $htmlContent);
 
 
-    $mail = new PHPMailer();
+    $to = "kmalik748@gmail.com";
+    $subject = "Your Subject Here";
+    $message = "<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Email Template</title>
+</head>
+<body>
+    <p>This is a sample HTML email.</p>
+    <p>You can include your HTML content here.</p>
+</body>
+</html>";
 
-    // SMTP Configuration (Replace with your own SMTP settings)
-    $mail->isSMTP();
-    $mail->Host = 'smtp.hostinger.com';
-    $mail->Port = 587;
-    $mail->SMTPAuth = true;
-    $mail->Username = 'gym@kashifali.me';
-    $mail->Password = 'Gym@1234';
-    $mail->SMTPSecure = 'tls';
+// To send HTML mail, the Content-type header must be set
+    $headers  = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
 
-    // Set the From and To addresses
-    $mail->setFrom('hyde@kashifali.me', 'Gym APP');
-    $mail->addAddress('kmalik748@gmail.com');
+// Additional headers
+    $headers .= "From: Your Name <your_email@example.com>" . "\r\n"; // Change your_name and your_email
 
-    // Set the subject and body of the email
-    $mail->Subject = 'test';
-    $mail->Body = 'Tet';
+// Send email
+    $mail_sent = mail($to, $subject, $message, $headers);
 
-    // Send the email
-    if ($mail->send()) {
-        echo "yes";
-        //return true;
+    if ($mail_sent) {
+        echo "Email sent successfully.";
     } else {
-        echo "no";
-        //return false;
+        echo "Email sending failed.";
     }
     die(); exit();
 
