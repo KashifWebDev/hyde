@@ -2,10 +2,16 @@
 session_start();
 
 
-$host = "localhost"; // MySQL host
-$username = "root"; // MySQL username
-$password = ""; // MySQL password
-$database = "upwork_hyde"; // MySQL database name
+$host = "localhost";
+
+
+$username = "root";
+$password = "";
+$database = "upwork_hyde";
+
+$username = "u953547654_hyde";
+$password = "Hyde@1234!";
+$database = "u953547654_hyde";
 
 
 
