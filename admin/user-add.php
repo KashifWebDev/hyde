@@ -31,7 +31,8 @@ if(isset($_POST["submit"])){
     $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
     $headers .= "From: your@example.com" . "\r\n";
 
-    mail($email, $subject, $htmlContent, $headers);
+    echo mail($email, $subject, $htmlContent, $headers);
+    die(); exit();
 
     $success = mysqli_query($con, $s);
 }
