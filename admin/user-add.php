@@ -10,7 +10,7 @@ require '../app/db.php';
 $s = "SELECT * FROM developments";
 $res = mysqli_query($con, $s);
 
-if(isset($_POST["submit"]) || true){
+if(isset($_POST["submit"])){
     $name = $_POST["name"];
     $email = $_POST["email"];
     $pass = $_POST["pass"];
