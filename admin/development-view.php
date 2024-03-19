@@ -1,3 +1,73 @@
+<?php
+    require '../app/db.php';
+    if(isset($_POST["save"])) {
+        $errMsg = null;
+        $uploadOk = 1;
+        $pack = $_POST['pack'];
+        $qty = $_POST['qty'];
+        $loc = $_POST['loc'];
+        $prod_type = $_POST['prod_type'];
+        $brand = $_POST['brand'];
+        $model = $_POST['model'];
+        $desc = $_POST['desc'];
+        $dep_id = $_POST['dep_id'];
+        $image = null;
+
+        if (isset($_FILES["image"]) && $_FILES["image"]["error"] == 0) {
+            $targetDirectory = "../images/site/uploads/"; // Directory where the file will be saved
+            $uploadOk = 1; // Flag to check if upload is successful
+            $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION)); // File type
+
+            // Check if image file is a actual image or fake image
+            $check = getimagesize($_FILES["image"]["tmp_name"]);
+            if ($check === false) {
+                $errMsg = "File is not an image.";
+                $uploadOk = 0;
+            }
+
+            // Check if $uploadOk is set to 0 by an error
+            if ($uploadOk == 0) {
+                $errMsg = "Sorry, your file was not uploaded.";
+            } else {
+                // Move uploaded file to target directory
+                $targetFile = $targetDirectory . basename($_FILES["image"]["name"]);
+                if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+                    $uploadOk = 1;
+                    $image = basename($_FILES["image"]["name"]);
+                    echo "The file " . htmlspecialchars(basename($_FILES["image"]["name"])) . " has been uploaded.";
+                } else {
+                    $uploadOk = 0;
+                    $errMsg = "Sorry, there was an error uploading your file.";
+                }
+            }
+        }
+
+        if($uploadOk){
+            $s = "INSERT INTO units (pack, qty, location, product_type, brand, model, description, image, dep_id) VALUES 
+                  ('$pack', $qty, '$loc', '$prod_type', '$brand', '$model', '$desc', '$image', $dep_id)";
+            mysqli_query($con, $s);
+
+        }else{
+
+        }
+    }
+
+    $depID = $_GET["id"];
+    $s = "SELECT * FROM units WHERE dep_id = $depID";
+    $r = mysqli_query($con, $s);
+    $rows = "";
+    while($result = mysqli_fetch_assoc($r)){
+        $rows .= "<tr>
+                    <td>".$result["id"]."</td>
+                    <td>".$result["pack"]."</td>
+                    <td>".$result["qty"]."</td>
+                    <td>".$result["location"]."</td>
+                    <td>".$result["model"]."</td>
+                    <td><img src='../images/site/uploads/".$result["image"]."' alt='Reference Image' width='100'></td>
+                    <td><a href='unit-details.php?id=".$result["id"]."'><span class='nk-menu-icon'><em class='icon ni ni-eye'></em></span></a></td>
+                </tr>";
+    }
+?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 
@@ -32,8 +102,39 @@
                                                 </ul>
                                             </div>
                                         </div>
+                                        <div class="nk-block-head-content">
+                                            <div class="toggle-wrap nk-block-tools-toggle">
+                                                <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em class="icon ni ni-menu-alt-r"></em></a>
+                                                <div class="toggle-expand-content" data-content="pageMenu">
+                                                    <ul class="nk-block-tools g-3">
+                                                        <li class="nk-block-tools-opt">
+                                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalForm">
+                                                                <em class="icon ni ni-plus"></em>Add New Unit
+                                                            </button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div><!-- .toggle-wrap -->
+                                        </div>
                                     </div>
                                 </div><!-- .nk-block-head -->
+
+                                <?php if(isset($uploadOk)){ ?>
+                                <div class="container">
+
+                                    <?php if(isset($uploadOk)){ ?>
+                                        <div class="example-alert">
+                                            <div class="alert alert-fill alert-success alert-icon">
+                                                <em class="icon ni ni-check-circle"></em> <strong>Unit was added!</strong> The new unit was successfully linked with the current department.</div>
+                                        </div>
+                                    <?php }else{ ?>
+                                        <div class="example-alert">
+                                            <div class="alert alert-fill alert-danger alert-icon">
+                                                <em class="icon ni ni-cross-circle"></em> <strong>Insertion Failed!</strong> <?=$con->error?></div>
+                                        </div>
+                                    <?php } ?>
+                                </div>
+                                <?php } ?>
 
                                 <div class="nk-content ">
                                     <div class="container-fluid">
@@ -62,47 +163,7 @@
                                                                     </thead>
                                                                     <tbody>
                                                                     <?php
-                                                                    // Define the headings
-                                                                    $headings = array("ID", "Pack", "Qty.", "Location", "Model", "Reference Image", "Actions");
-
-                                                                    // Generate random data for each row
-                                                                    $rows = '';
-                                                                    for ($id = 1; $id <= 10; $id++) { // Let's create 10 rows for example
-                                                                        $pack = getRandomString(array("Small", "Medium", "Large", "Extra Large"));
-                                                                        $qty = rand(5, 50);
-                                                                        $location = getRandomString(array("Area A", "Area B", "Area C", "Area D"));
-                                                                        $model = getRandomString(array("Model X", "Model Y", "Model Z"));
-                                                                        $images = array(
-                                                                            "https://www.hydecontract.ie/cdn/shop/files/elbow_3_400X400.jpg",
-                                                                            "https://www.hydecontract.ie/cdn/shop/files/1.Carlton_p_1_400X400.jpg?v=1614295675",
-                                                                            "https://www.hydecontract.ie/cdn/shop/files/5_03.png?v=1614292789"
-                                                                        );
-                                                                        $randomImage = $images[array_rand($images)];
-
-                                                                        $actions = "<a href='unit-details.php?id=$id'><span class='nk-menu-icon'>
-<em class='icon ni ni-eye'></em>
-</span></a>";
-
-                                                                        // Generate the table row
-                                                                        $rows .= "<tr>
-                                                                                <td>$id</td>
-                                                                                <td>$pack</td>
-                                                                                <td>$qty</td>
-                                                                                <td>$location</td>
-                                                                                <td>$model</td>
-                                                                                <td><img src='$randomImage' alt='Reference Image' width='100'></td>
-                                                                                <td>$actions</td>
-                                                                            </tr>";
-                                                                    }
-
-                                                                    // Print the table rows
                                                                     echo $rows;
-
-                                                                    // Function to return a random string from a predefined array of strings
-                                                                    function getRandomString($strings) {
-                                                                        $randomIndex = array_rand($strings);
-                                                                        return $strings[$randomIndex];
-                                                                    }
                                                                     ?>
 
                                                                     </tbody>
@@ -135,6 +196,99 @@
     <script src="../assets/js/bundle.js?ver=2.4.0"></script>
     <script src="../assets/js/scripts.js?ver=2.4.0"></script>
     <script src="../assets/js/charts/gd-default.js?ver=2.4.0"></script>
+
+
+    <div class="modal fade zoom" tabindex="-1" id="modalForm">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Unit</h5>
+                    <a href="#" class="close" data-dismiss="modal" aria-label="Close">
+                        <em class="icon ni ni-cross"></em>
+                    </a>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="" enctype="multipart/form-data" class="form-validate is-alter">
+                        <div class="row">
+                            <div class="col-md-6 mb-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="full-name">Pack</label>
+                                    <div class="form-control-wrap">
+                                        <input type="text" class="form-control" id="full-name" name="pack" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="qty">Quantity</label>
+                                    <div class="form-control-wrap">
+                                        <input type="number" class="form-control" id="qty" name="qty" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="Location">Location</label>
+                                    <div class="form-control-wrap">
+                                        <input type="text" class="form-control" id="Location" name="loc" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="prod_type">Product Type</label>
+                                    <div class="form-control-wrap">
+                                        <input type="text" class="form-control" id="prod_type" name="prod_type" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="brand">Brand</label>
+                                    <div class="form-control-wrap">
+                                        <input type="text" class="form-control" id="brand" name="brand" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="model">Model</label>
+                                    <div class="form-control-wrap">
+                                        <input type="text" class="form-control" id="model" name="model" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="desc">Description</label>
+                                    <div class="form-control-wrap">
+                                        <textarea class="form-control" rows="3" id="desc" name="desc" required></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 mb-2">
+                                <div class="form-group">
+                                    <label class="form-label" for="default-06">Reference Image</label>
+                                    <div class="form-control-wrap">
+                                        <div class="custom-file">
+                                            <input type="file" name="image" class="custom-file-input" id="customFile">
+                                            <label class="custom-file-label" for="customFile">Upload Picture</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group mt-3 d-flex justify-content-center">
+                            <input type="hidden" name="dep_id" value="<?=$_GET["id"]?>">
+                            <button type="submit" class="btn btn-lg btn-primary" name="save">Save Details</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </body>
 
 </html>

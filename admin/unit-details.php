@@ -1,7 +1,14 @@
+<?php
+require '../app/db.php';
+$id = $_GET["id"];
+$s = "SELECT * from units WHERE id = $id";
+$res = mysqli_query($con, $s);
+$row = mysqli_fetch_assoc($res);
+?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 
-<?php $title = "Dashboard"; require '__head.php'; ?>
+<?php $title = $row["pack"]; require '__head.php'; ?>
 
 <body class="nk-body bg-lighter npc-general has-sidebar ">
     <div class="nk-app-root">
@@ -26,26 +33,26 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4">
-                            <div class="d-flex flex-column align-items-center">
+                            <div class="d-flex flex-column align-items-center mt-4">
 
-                                <img width="350px" src="https://www.hydecontract.ie/cdn/shop/files/1.Carlton_p_1_400X400.jpg?v=1614295675" alt="">
-                                <a style="width: 250px;" href="#"
-                                   class="btn btn-round btn-primary center mt-2">
-                                    <em class="icon ni ni-cart"></em>
-                                    <span>Re-order Now</span>
-                                </a>
+                                <img width="350px" src="../images/site/uploads/<?=$row["image"]?>" alt="">
+<!--                                <a style="width: 250px;" href="#"-->
+<!--                                   class="btn btn-round btn-primary center mt-2">-->
+<!--                                    <em class="icon ni ni-cart"></em>-->
+<!--                                    <span>Re-order Now</span>-->
+<!--                                </a>-->
                             </div>
                         </div>
                         <div class="col-md-8">
                             <ul class="list-group">
-                                <li class="list-group-item"><span class="fw-bold">Pack: </span>BOWERY</li>
-                                <li class="list-group-item"><span class="fw-bold">Quantity: </span>23</li>
-                                <li class="list-group-item"><span class="fw-bold">Area: </span>Living Room</li>
-                                <li class="list-group-item"><span class="fw-bold">Product Category: </span>Coffe Table</li>
-                                <li class="list-group-item"><span class="fw-bold">Brand: </span>HDE Contract</li>
-                                <li class="list-group-item"><span class="fw-bold">Model: </span>Amble</li>
-                                <li class="list-group-item"><span class="fw-bold">Description: </span>AMBLE COFFEE TABLE TOP MELAMINE MARBLE BASE STEEL MATT BLACK</li>
-                                <li class="list-group-item"><span class="fw-bold">Warranty Start Date: </span> In Warranty</li>
+                                <li class="list-group-item"><span class="fw-bold">Pack: </span><?=$row["pack"]?></li>
+                                <li class="list-group-item"><span class="fw-bold">Quantity: </span><?=$row["qty"]?></li>
+                                <li class="list-group-item"><span class="fw-bold">Location: </span><?=$row["location"]?></li>
+                                <li class="list-group-item"><span class="fw-bold">Product Type: </span><?=$row["product_type"]?></li>
+                                <li class="list-group-item"><span class="fw-bold">Brand: </span><?=$row["brand"]?></li>
+                                <li class="list-group-item"><span class="fw-bold">Model: </span><?=$row["model"]?></li>
+                                <li class="list-group-item"><span class="fw-bold">Description: </span><?=$row["description"]?></li>
+<!--                                <li class="list-group-item"><span class="fw-bold">Warranty Start Date: </span> In Warranty</li>-->
                             </ul>
                         </div>
                     </div>

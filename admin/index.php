@@ -1,3 +1,12 @@
+<?php
+require '../app/db.php';
+
+    function countRows($table){
+        $sql = "SELECT * FROM $table";
+        $result=mysqli_query($GLOBALS["con"],$sql);
+        return mysqli_num_rows($result);
+    }
+?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 
@@ -41,7 +50,7 @@
                                     <div class="d-flex justify-content-between">
                                         <div>
                                             <p class="card-text">Users</p>
-                                            <h5 class="card-title">38</h5>
+                                            <h5 class="card-title"><?=countRows('users')?></h5>
                                         </div>
                                         <div>
                                             <em class="icon ni ni-users-fill" style="font-size: 52px;"></em>
@@ -56,7 +65,7 @@
                                     <div class="d-flex justify-content-between">
                                         <div>
                                             <p class="card-text">Developments</p>
-                                            <h5 class="card-title">25</h5>
+                                            <h5 class="card-title"><?=countRows('developments')?></h5>
                                         </div>
                                         <div>
                                             <em class="icon ni ni-building" style="font-size: 52px;"></em>
@@ -71,7 +80,7 @@
                                     <div class="d-flex justify-content-between">
                                         <div>
                                             <p class="card-text">Units</p>
-                                            <h5 class="card-title">25</h5>
+                                            <h5 class="card-title"><?=countRows('units')?></h5>
                                         </div>
                                         <div>
                                             <em class="icon ni ni-table-view" style="font-size: 52px;"></em>

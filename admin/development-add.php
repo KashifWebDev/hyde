@@ -1,7 +1,18 @@
+<?php
+$success = false;
+    require '../app/db.php';
+    if(isset($_POST["save"])){
+        $name = $_POST["name"];
+        $desc = $_POST["desc"];
+
+        $sql = "INSERT INTO developments (name, description) VALUES ('$name', '$desc')";
+        $success = mysqli_query($con, $sql);
+    }
+?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 
-<?php $title = "Dashboard"; require '__head.php'; ?>
+<?php $title = "Add New Development"; require '__head.php'; ?>
 
 <body class="nk-body bg-lighter npc-general has-sidebar ">
     <div class="nk-app-root">
@@ -25,15 +36,25 @@
                             </div>
                         </div>
                         <div class="container">
+                            <?php if($success){ ?>
+                            <div class="example-alert mb-4 shadow-lg">
+                                <div class="alert alert-pro alert-primary">
+                                    <div class="alert-text">
+                                        <h6>Development was added</h6>
+                                        <p>New Development was added successfully. <a style="text-decoration: underline" href="development-list.php">Click Here</a> to list developments </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php } ?>
                             <div class="card card-bordered">
                                 <div class="card-inner">
-                                    <form action="#" class="form-validate is-alter">
+                                    <form method="post" class="form-validate is-alter">
                                         <div class="row g-gs">
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <label class="form-label" for="fva-full-name">Name Of Development</label>
                                                     <div class="form-control-wrap">
-                                                        <input type="text" class="form-control" id="fva-full-name" name="fva-full-name" required>
+                                                        <input type="text" class="form-control" id="fva-full-name" name="name" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -41,13 +62,13 @@
                                                 <div class="form-group">
                                                     <label class="form-label" for="fva-message">Short Description</label>
                                                     <div class="form-control-wrap">
-                                                        <textarea class="form-control form-control-sm" id="fva-message" name="fva-message" placeholder="Write your message" required></textarea>
+                                                        <textarea class="form-control form-control-sm" id="fva-message" name="desc" placeholder="Write your message" required></textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <button type="submit" class="btn btn-lg btn-primary btn-round">
+                                                    <button type="submit" name="save" class="btn btn-lg btn-primary btn-round">
                                                         <em class="icon ni ni-save mr-1"></em>
                                                         Save Development
                                                     </button>

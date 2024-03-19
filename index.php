@@ -1,3 +1,28 @@
+<?php
+$error = false;
+ if(isset($_POST["login"])){
+     require 'app/db.php';
+     $email = $_POST["email"];
+     $pass = $_POST["pass"];
+
+     $query = "SELECT * FROM users WHERE email = '$email' and pass = '$pass'";
+
+     $result = $con->query($query);
+    // mysqli_num_rows is counting table row
+    if(mysqli_num_rows($result) > 0) {
+        $rows = mysqli_fetch_assoc($result);
+        $_SESSION["user"] = $rows;
+
+        if ($rows['is_admin'] == 1) {
+            header('location: admin');
+
+        } else
+            header('location: dashboard');
+    }else{
+        $error = true;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 
@@ -35,6 +60,13 @@
                                         <img class="logo-dark logo-img logo-img-lg" src="images/site/logo.jpg" srcset="images/site/logo.jpg 2x" alt="logo-dark">
                                     </a>
                                 </div>
+                                <?php if($error){ ?>
+                                    <div class="example-alert pb-4">
+                                        <div class="alert alert-fill alert-danger alert-dismissible alert-icon">
+                                            <em class="icon ni ni-cross-circle"></em> <strong>Login Failed</strong>! Incorrect Email or password <button class="close" data-dismiss="alert"></button>
+                                        </div>
+                                    </div>
+                                <?php } ?>
                                 <div class="nk-block-head">
                                     <div class="nk-block-head-content">
                                         <h5 class="nk-block-title">Sign-In</h5>
@@ -43,13 +75,14 @@
                                         </div>
                                     </div>
                                 </div><!-- .nk-block-head -->
-                                <form action="dashboard">
+
+                                <form action="" method="post">
                                     <div class="form-group">
                                         <div class="form-label-group">
                                             <label class="form-label" for="default-01">Email or Username</label>
 <!--                                            <a class="link link-primary link-sm" tabindex="-1" href="#">Need Help?</a>-->
                                         </div>
-                                        <input type="text" class="form-control form-control-lg" id="default-01" placeholder="Enter your email address or username">
+                                        <input name="email" type="text" class="form-control form-control-lg" id="default-01" placeholder="Enter your email address or username">
                                     </div><!-- .foem-group -->
                                     <div class="form-group">
                                         <div class="form-label-group">
@@ -61,11 +94,11 @@
                                                 <em class="passcode-icon icon-show icon ni ni-eye"></em>
                                                 <em class="passcode-icon icon-hide icon ni ni-eye-off"></em>
                                             </a>
-                                            <input type="password" class="form-control form-control-lg" id="password" placeholder="Enter your passcode">
+                                            <input name="pass" type="password" class="form-control form-control-lg" id="password" placeholder="Enter your passcode">
                                         </div>
                                     </div><!-- .foem-group -->
                                     <div class="form-group">
-                                        <button class="btn btn-lg btn-primary btn-block">Sign in</button>
+                                        <button name="login" type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
                                     </div>
                                 </form><!-- form -->
 <!--                                <div class="form-note-s2 pt-4"> New on our platform? <a href="html/pages/auths/auth-register.html">Create an account</a>-->
@@ -106,7 +139,7 @@
                                     <div class="slider-item">
                                         <div class="nk-feature nk-feature-center">
                                             <div class="nk-feature-img">
-                                                <img class="round" src="./images/site/1.png" srcset="./images/slides/promo-a2x.png 2x" alt="">
+                                                <img class="round" src="./images/site/1.png?v=2" srcset="./images/slides/promo-a2x.png 2x" alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
                                                 <h4>HYDE INTERIORS</h4>
@@ -117,7 +150,7 @@
                                     <div class="slider-item">
                                         <div class="nk-feature nk-feature-center">
                                             <div class="nk-feature-img">
-                                                <img class="round" src="images/site/2.png" srcset="./images/slides/promo-b2x.png 2x" alt="">
+                                                <img class="round" src="images/site/2.png?v=2" srcset="./images/slides/promo-b2x.png 2x" alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
                                                 <h4>HYDE INTERIORS</h4>
@@ -128,7 +161,7 @@
                                     <div class="slider-item">
                                         <div class="nk-feature nk-feature-center">
                                             <div class="nk-feature-img">
-                                                <img class="round" src="images/site/3.png" srcset="./images/slides/promo-c2x.png 2x" alt="">
+                                                <img class="round" src="images/site/3.png?v=2" srcset="./images/slides/promo-c2x.png 2x" alt="">
                                             </div>
                                             <div class="nk-feature-content py-4 p-sm-5">
                                                 <h4>HYDE INTERIORS</h4>
