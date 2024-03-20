@@ -7,7 +7,7 @@
         </div>
         <div class="nk-sidebar-brand">
             <a href="" class="logo-link nk-sidebar-logo">
-                <img class="logo-light logo-img" src="../images/site/client.jpg" srcset="./images/logo2x.png 2x" alt="logo">
+                <img class="logo-light logo-img" src="../images/site/uploads/<?=$_SESSION['user']['logo']?>" srcset="./images/logo2x.png 2x" alt="logo">
             </a>
         </div>
     </div><!-- .nk-sidebar-element -->

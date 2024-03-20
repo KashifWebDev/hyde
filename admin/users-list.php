@@ -1,3 +1,8 @@
+<?php
+require '../app/db.php';
+$s = "SELECT * FROM users WHERE is_admin=0";
+$res = mysqli_query($con, $s);
+?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 
@@ -40,36 +45,33 @@
                                                             <table class="datatable-init nowrap table">
                                                                 <thead>
                                                                 <tr>
+                                                                    <th>ID</th>
                                                                     <th>Full Name</th>
                                                                     <th>Email</th>
+                                                                    <th>Phone</th>
+                                                                    <th>DoB</th>
                                                                     <th>Development</th>
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                 <?php
-                                                                // Define the headings
-                                                                $users = array(
-                                                                    array("John Doe", "john@example.co", "Area A"),
-                                                                    array("Jane Smith", "jane@example.co", "Area B"),
-                                                                    array("Michael Johnson", "michael@example.co", "Area C"),
-                                                                    array("Emily Brown", "emily@example.co", "Area D"),
-                                                                    array("Chris Lee", "chris@example.com", "Area E")
-                                                                );
-
-                                                                $userRows = '';
-                                                                foreach ($users as $user) {
-                                                                    $userRows .= "<tr>";
-                                                                    foreach ($user as $data) {
-                                                                        $userRows .= "<td>$data</td>";
-                                                                    }
-                                                                    $userRows .= "</tr>";
+                                                                while($row = mysqli_fetch_assoc($res)){
+                                                                    $devID = $row["dep_id"];
+                                                                    $k = "SELECT name FROM developments WHERE id = $devID";
+                                                                    $k1 = mysqli_query($con, $k);
+                                                                    $dev = mysqli_fetch_assoc($k1);
+                                                                    ?>
+                                                                    <tr>
+                                                                        <td><?=$row["id"]?></td>
+                                                                        <td><?=$row["fullName"]?></td>
+                                                                        <td><?=$row["email"]?></td>
+                                                                        <td><?=$row["phone"]?></td>
+                                                                        <td><?=$row["dob"]?></td>
+                                                                        <td><?=$dev["name"]?></td>
+                                                                    </tr>
+                                                                <?php
                                                                 }
-
-                                                                // Print the table rows
-                                                                echo $userRows;
-
                                                                 ?>
-
                                                                 </tbody>
                                                             </table>
                                                         </div>

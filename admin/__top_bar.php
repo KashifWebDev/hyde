@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="user-info d-none d-md-block">
                                     <div class="user-status">Administrator</div>
-                                    <div class="user-name dropdown-indicator">Abu Bin Ishityak</div>
+                                    <div class="user-name dropdown-indicator"><?=$_SESSION["user"]["fullName"]?></div>
                                 </div>
                             </div>
                         </a>
@@ -33,11 +33,11 @@
                             <div class="dropdown-inner user-card-wrap bg-lighter d-none d-md-block">
                                 <div class="user-card">
                                     <div class="user-avatar">
-                                        <span>AB</span>
+                                        <span>A</span>
                                     </div>
                                     <div class="user-info">
-                                        <span class="lead-text">Abu Bin Ishtiyak</span>
-                                        <span class="sub-text">info@softnio.com</span>
+                                        <span class="lead-text"><?=$_SESSION["user"]["fullName"]?></span>
+                                        <span class="sub-text"><?=$_SESSION["user"]["email"]?></span>
                                     </div>
                                 </div>
                             </div>

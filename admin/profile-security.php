@@ -1,3 +1,48 @@
+<?php
+require '../app/db.php';
+
+function alert($msg)
+{
+    echo "<script>alert('$msg')</script>";
+}
+
+function changePassword($con, $userId, $currentPassword, $newPassword, $confirmPassword) {
+    $check = false;
+    $result = mysqli_query($con, "SELECT pass FROM users WHERE id = '$userId'");
+    if (!$result) {
+        alert("Error retrieving current password: " . mysqli_error($con));
+    }
+    $row = mysqli_fetch_assoc($result);
+    $hashedPassword = $row['pass'];
+    //echo $hashedPassword.' '.$currentPassword;exit(); die();
+
+    // Verify if the entered current password matches the password retrieved from the database
+    if ($currentPassword != $hashedPassword) {
+        alert("Incorrect current password.");
+    }elseif ($newPassword !== $confirmPassword) {
+        alert("New password and confirm password do not match.");
+    }else{
+        $hashedNewPassword = $newPassword;
+        echo "UPDATE users SET pass = '$hashedNewPassword' WHERE id = '$userId'";
+
+        $updateResult = mysqli_query($con, "UPDATE users SET pass = '$hashedNewPassword' WHERE id = '$userId'");
+        if ($updateResult) {
+            alert("Password changed successfully.");
+        } else {
+            alert("Error updating password: " . mysqli_error($con));
+        }
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $currentPassword = $_POST["current_password"];
+    $newPassword = $_POST["new_password"];
+    $confirmPassword = $_POST["confirm_password"];
+
+    $userId = $_SESSION['user']['id'];
+    changePassword($GLOBALS['con'], $userId, $currentPassword, $newPassword, $confirmPassword);
+}
+?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 
@@ -52,9 +97,6 @@
                                                                             <li class="order-md-last">
                                                                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalForm">Change Password</button>
                                                                             </li>
-                                                                            <li>
-                                                                                <em class="text-soft text-date fs-12px">Last changed: <span>Oct 2, 2019</span></em>
-                                                                            </li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
@@ -101,23 +143,23 @@
                     </a>
                 </div>
                 <div class="modal-body">
-                    <form action="#" class="form-validate is-alter">
+                    <form action="" method="post" class="form-validate is-alter">
                         <div class="form-group">
                             <label class="form-label" for="full-name">Old Password</label>
                             <div class="form-control-wrap">
-                                <input type="password" class="form-control" id="full-name" required>
+                                <input name="current_password" type="password" class="form-control" id="full-name" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="full-name">New Password</label>
                             <div class="form-control-wrap">
-                                <input type="password" class="form-control" id="full-name" required>
+                                <input name="new_password" type="password" class="form-control" id="full-name" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="form-label" for="full-name">Confirm Password</label>
                             <div class="form-control-wrap">
-                                <input type="password" class="form-control" id="full-name" required>
+                                <input name="confirm_password" type="password" class="form-control" id="full-name" required>
                             </div>
                         </div>
                         <div class="form-group">

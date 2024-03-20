@@ -31,7 +31,7 @@ $res = mysqli_query($con, $s);
                                         <div class="nk-block-head-content">
                                             <h3 class="nk-block-title page-title">Developments</h3>
                                             <div class="nk-block-des text-soft">
-                                                <p>You have total 3 developments.</p>
+                                                <p>You have total 1 development(s).</p>
                                             </div>
                                         </div>
                                     </div>

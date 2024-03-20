@@ -1,3 +1,49 @@
+<?php
+require '../app/db.php';
+$image = null;
+
+if(isset($_POST["save"])) {
+    $errMsg = null;
+
+    if (isset($_FILES["image"]) && $_FILES["image"]["error"] == 0) {
+        $targetDirectory = "../images/site/uploads/"; // Directory where the file will be saved
+        $uploadOk = 1; // Flag to check if upload is successful
+        $imageFileType = strtolower(pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION)); // File type
+
+        // Check if image file is a actual image or fake image
+        $check = getimagesize($_FILES["image"]["tmp_name"]);
+        if ($check === false) {
+            $errMsg = "File is not an image.";
+            $uploadOk = 0;
+        }
+
+        // Check if $uploadOk is set to 0 by an error
+        if ($uploadOk == 0) {
+            $errMsg = "Sorry, your file was not uploaded.";
+        } else {
+            // Move uploaded file to target directory
+            $targetFile = $targetDirectory . basename($_FILES["image"]["name"]);
+            if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
+                $uploadOk = 1;
+                $image = basename($_FILES["image"]["name"]);
+                echo "The file " . htmlspecialchars(basename($_FILES["image"]["name"])) . " has been uploaded.";
+            } else {
+                $uploadOk = 0;
+                $errMsg = "Sorry, there was an error uploading your file.";
+            }
+        }
+    }
+
+    if($uploadOk){
+        $uid = $_SESSION["user"]["id"];
+        $s = "UPDATE users SET logo = '$image' WHERE id = $uid";
+        mysqli_query($con, $s);
+
+    }else{
+
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 
@@ -38,24 +84,45 @@
                                                         </div>
                                                     </div>
                                                 </div><!-- .nk-block-head -->
+
+                                                <?php if(isset($uploadOk)){ ?>
+                                                    <div class="container">
+
+                                                        <?php if(isset($uploadOk)){ ?>
+                                                            <div class="example-alert">
+                                                                <div class="alert alert-fill alert-success alert-icon">
+                                                                    <em class="icon ni ni-check-circle"></em> <strong>Unit was added!</strong> The new unit was successfully linked with the current department.</div>
+                                                            </div>
+                                                        <?php }else{ ?>
+                                                            <div class="example-alert">
+                                                                <div class="alert alert-fill alert-danger alert-icon">
+                                                                    <em class="icon ni ni-cross-circle"></em> <strong>Insertion Failed!</strong> <?=$con->error?></div>
+                                                            </div>
+                                                        <?php } ?>
+                                                    </div>
+                                                <?php } ?>
+
                                                 <div class="nk-block card">
-                                                    <div class="row">
-                                                        <div class="col-sm-6">
-                                                            <div class="form-group">
-                                                                <label class="form-label" for="customFileLabel">Upload your logo for dashboard</label>
-                                                                <div class="form-control-wrap">
-                                                                    <div class="custom-file">
-                                                                        <input type="file" class="custom-file-input" id="customFile">
-                                                                        <label class="custom-file-label" for="customFile">Choose file</label>
+                                                    <form action="" method="post" enctype="multipart/form-data">
+                                                        <div class="row">
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="customFileLabel">Upload your logo for dashboard</label>
+                                                                    <div class="form-control-wrap">
+                                                                        <div class="custom-file">
+                                                                            <input name="image" type="file" class="custom-file-input" id="customFile">
+                                                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="form-group">
-
-                                                                <button type="button" class="btn btn-primary"><em class="icon ni ni-setting"></em><span>Save My Logo</span> </button>
+                                                                <div class="form-group">
+                                                                    <button type="submit" class="btn btn-primary" name="save">
+                                                                        <em class="icon ni ni-setting"></em><span>Save My Logo</span>
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </form>
                                                 </div><!-- .nk-block-head -->
                                             </div><!-- .card-inner -->
                                             <div class="card-aside card-aside-left user-aside toggle-slide toggle-slide-left toggle-break-lg" data-content="userAside" data-toggle-screen="lg" data-toggle-overlay="true">

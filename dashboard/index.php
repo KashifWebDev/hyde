@@ -1,3 +1,6 @@
+<?php
+require '../app/db.php';
+?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 

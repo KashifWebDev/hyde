@@ -1,3 +1,6 @@
+<?php
+require '../app/db.php';
+?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
 
@@ -30,7 +33,7 @@
                                                         <div class="nk-block-head-content">
                                                             <h4 class="nk-block-title">Personal Information</h4>
                                                             <div class="nk-block-des">
-                                                                <p>Basic info, like your name and address, that you use on Nio Platform.</p>
+                                                                <p>Basic info, like your name and address etc.</p>
                                                             </div>
                                                         </div>
                                                         <div class="nk-block-head-content align-self-start d-lg-none">
@@ -46,44 +49,37 @@
                                                         <div class="data-item" data-toggle="modal" data-target="#profile-edit">
                                                             <div class="data-col">
                                                                 <span class="data-label">Full Name</span>
-                                                                <span class="data-value">Abu Bin Ishtiyak</span>
+                                                                <span class="data-value"><?=$_SESSION["user"]["fullName"]?></span>
                                                             </div>
-                                                            <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>
-                                                        </div><!-- data-item -->
-                                                        <div class="data-item" data-toggle="modal" data-target="#profile-edit">
-                                                            <div class="data-col">
-                                                                <span class="data-label">Display Name</span>
-                                                                <span class="data-value">Ishtiyak</span>
-                                                            </div>
-                                                            <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>
+<!--                                                            <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>-->
                                                         </div><!-- data-item -->
                                                         <div class="data-item">
                                                             <div class="data-col">
                                                                 <span class="data-label">Email</span>
-                                                                <span class="data-value">info@softnio.com</span>
+                                                                <span class="data-value"><?=$_SESSION["user"]["email"]?></span>
                                                             </div>
-                                                            <div class="data-col data-col-end"><span class="data-more disable"><em class="icon ni ni-lock-alt"></em></span></div>
+<!--                                                            <div class="data-col data-col-end"><span class="data-more disable"><em class="icon ni ni-lock-alt"></em></span></div>-->
                                                         </div><!-- data-item -->
                                                         <div class="data-item" data-toggle="modal" data-target="#profile-edit">
                                                             <div class="data-col">
                                                                 <span class="data-label">Phone Number</span>
-                                                                <span class="data-value text-soft">Not add yet</span>
+                                                                <span class="data-value text-soft"><?=$_SESSION["user"]["phone"]?></span>
                                                             </div>
-                                                            <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>
+<!--                                                            <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>-->
                                                         </div><!-- data-item -->
                                                         <div class="data-item" data-toggle="modal" data-target="#profile-edit">
                                                             <div class="data-col">
                                                                 <span class="data-label">Date of Birth</span>
-                                                                <span class="data-value">29 Feb, 1986</span>
+                                                                <span class="data-value"><?=$_SESSION["user"]["dob"]?></span>
                                                             </div>
-                                                            <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>
+<!--                                                            <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>-->
                                                         </div><!-- data-item -->
                                                         <div class="data-item" data-toggle="modal" data-target="#profile-edit" data-tab-target="#address">
                                                             <div class="data-col">
                                                                 <span class="data-label">Address</span>
-                                                                <span class="data-value">2337 Kildeer Drive,<br>Kentucky, Canada</span>
+                                                                <span class="data-value"><?=$_SESSION["user"]["address"]?></span>
                                                             </div>
-                                                            <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>
+<!--                                                            <div class="data-col data-col-end"><span class="data-more"><em class="icon ni ni-forward-ios"></em></span></div>-->
                                                         </div><!-- data-item -->
                                                     </div><!-- data-list -->
                                                 </div><!-- .nk-block -->
