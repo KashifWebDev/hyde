@@ -56,7 +56,9 @@ $depID = $_GET["id"];
 $s = "SELECT * FROM units WHERE dep_id = $depID";
 $r = mysqli_query($con, $s);
 $rows = "";
+$count = 0;
 while($result = mysqli_fetch_assoc($r)){
+    $count++;
     $rows .= "<tr>
                     <td>".$result["id"]."</td>
                     <td>".$result["pack"]."</td>
@@ -97,8 +99,8 @@ while($result = mysqli_fetch_assoc($r)){
                                         <h3 class="nk-block-title page-title">Developments / <strong class="text-primary small">Dev Site 1</strong></h3>
                                         <div class="nk-block-des text-soft">
                                             <ul class="list-inline">
-                                                <li>Total Units: <span class="text-base">34</span></li>
-                                                <li>Last Delivered: <span class="text-base">15 Feb, 2019 01:02 PM</span></li>
+                                                <li>Total Units: <span class="text-base"><?=$count?></span></li>
+                                                <li>Last Delivered: <span class="text-base">26 Feb, 2024 11:02 AM</span></li>
                                             </ul>
                                         </div>
                                     </div>
