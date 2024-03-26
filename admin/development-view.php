@@ -65,7 +65,7 @@
                     <td>".$result["qty"]."</td>
                     <td>".$result["location"]."</td>
                     <td>".$result["model"]."</td>
-                    <td><img src='../images/site/uploads/".$result["image"]."' alt='Reference Image' width='100'></td>
+                    <td><img src='../images/site/uploads/".$result["image"]."' alt='Reference Image' width='100' height='100'></td>
                     <td><a href='unit-details.php?id=".$result["id"]."'><span class='nk-menu-icon'><em class='icon ni ni-eye'></em></span></a></td>
                 </tr>";
     }
