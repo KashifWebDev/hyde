@@ -41,7 +41,7 @@ $rowcount = mysqli_num_rows($res);
                                     <div class="nk-block">
                                         <div class="row">
                                             <?php while($block = mysqli_fetch_assoc($res)){ ?>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 mt-4">
                                                 <?php
                                                 $depID = $block["id"];
                                                 $s = "SELECT * from unit_tabs WHERE parent_id = $depID";
