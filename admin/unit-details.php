@@ -35,7 +35,7 @@ $row = mysqli_fetch_assoc($res);
                         <div class="col-md-4">
                             <div class="d-flex flex-column align-items-center mt-4">
 
-                                <img width="350px" src="../images/site/uploads/<?=$row["image"]?>" alt="">
+                                <img width="350px" height="350px" src="../images/site/uploads/<?=$row["image"]?>" alt="">
 <!--                                <a style="width: 250px;" href="#"-->
 <!--                                   class="btn btn-round btn-primary center mt-2">-->
 <!--                                    <em class="icon ni ni-cart"></em>-->

@@ -53,11 +53,18 @@ if(isset($_POST["save"])) {
 }
 
 $depID = $_GET["id"];
-$s = "SELECT * FROM units WHERE dep_id = $depID";
+
+
+$s = "SELECT * FROM unit_tabs WHERE id = $depID";
+$res = mysqli_query($con, $s);
+$headings = mysqli_fetch_assoc($res);
+
+$s = "SELECT * FROM units WHERE unit_tab_id = $depID";
 $r = mysqli_query($con, $s);
 $rows = "";
 $count = 0;
 while($result = mysqli_fetch_assoc($r)){
+    $pack = $result["pack"];
     $count++;
     $rows .= "<tr>
                     <td>".$result["id"]."</td>
@@ -103,18 +110,23 @@ while($result = mysqli_fetch_assoc($r)){
                                                 <li>Last Delivered: <span class="text-base">26 Feb, 2024 11:02 AM</span></li>
                                             </ul>
                                         </div>
+                                        <ul class="link-list-plain no-bdr">
+                                            <li><a href="#"><em class="icon ni ni-archive"></em><span>Pack: <?=$pack?></span></a></li>
+                                            <li><a href="#"><em class="icon ni ni-box"></em><span>Unit Number: <?=$headings["name"]?></span></a></li>
+                                            <li><a href="#"><em class="icon ni ni-bulb"></em><span>Ref: <?=$headings["ref"]?></span></a></li>
+                                        </ul>
                                     </div>
                                     <div class="nk-block-head-content">
                                         <div class="toggle-wrap nk-block-tools-toggle">
                                             <a href="#" class="btn btn-icon btn-trigger toggle-expand mr-n1" data-target="pageMenu"><em class="icon ni ni-menu-alt-r"></em></a>
                                             <div class="toggle-expand-content" data-content="pageMenu">
-<!--                                                <ul class="nk-block-tools g-3">-->
-<!--                                                    <li class="nk-block-tools-opt">-->
+                                                <ul class="nk-block-tools g-3">
+                                                    <li class="nk-block-tools-opt">
 <!--                                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalForm">-->
 <!--                                                            <em class="icon ni ni-plus"></em>Add New Unit-->
 <!--                                                        </button>-->
-<!--                                                    </li>-->
-<!--                                                </ul>-->
+                                                    </li>
+                                                </ul>
                                             </div>
                                         </div><!-- .toggle-wrap -->
                                     </div>
