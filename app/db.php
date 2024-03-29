@@ -4,10 +4,10 @@ session_start();
 
 $host = "localhost";
 
-
 $username = "root";
 $password = "";
 $database = "upwork_hyde";
+
 
 $username = "u953547654_hyde";
 $password = "Hyde@1234!";

@@ -25,9 +25,15 @@ require '../app/db.php';
                             <div class="nk-content-body">
                                 <div class="nk-block-head nk-block-head-sm">
                                     <div class="nk-block-between">
-                                        <div class="nk-block-head-content">
+                                        <div class="nk-block-head-content w-100">
                                             <div class="nk-block-des text-soft">
-                                                <p>Welcome back User Name!</p>
+                                                <div class="example-alert">
+                                                    <div class="alert alert-pro alert-primary">
+                                                        <div class="alert-text">
+                                                            <h6>Welcome back <span class="ucap"><?=$_SESSION["user"]["fullName"]?></span>.</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div><!-- .nk-block-between -->

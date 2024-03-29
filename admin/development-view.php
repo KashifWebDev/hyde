@@ -55,9 +55,15 @@
     $depID = $_GET["id"];
 
 
-    $s = "SELECT * FROM unit_tabs WHERE id = $depID";
-    $res = mysqli_query($con, $s);
-    $headings = mysqli_fetch_assoc($res);
+$s = "SELECT * FROM unit_tabs WHERE id = $depID";
+$res = mysqli_query($con, $s);
+$headings = mysqli_fetch_assoc($res);
+
+$dev_id = $headings["parent_id"];
+$s = "SELECT * FROM developments WHERE id = $dev_id";
+$r = mysqli_query($con, $s);
+$dev_res = mysqli_fetch_assoc($r);
+$development_name = $dev_res["name"];
 
     $s = "SELECT * FROM units WHERE unit_tab_id = $depID";
     $r = mysqli_query($con, $s);
@@ -103,7 +109,7 @@
                                 <div class="nk-block-head nk-block-head-sm">
                                     <div class="nk-block-between g-3">
                                         <div class="nk-block-head-content">
-                                            <h3 class="nk-block-title page-title">Developments / <strong class="text-primary small">Dev Site 1</strong></h3>
+                                            <h3 class="nk-block-title page-title">Developments / <strong class="text-primary small"><?=$development_name?></strong></h3>
                                             <div class="nk-block-des text-soft">
                                                 <ul class="list-inline">
                                                     <li>Total Units: <span class="text-base"><?=$count?></span></li>
