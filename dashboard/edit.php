@@ -132,7 +132,7 @@ if(isset($_POST["save"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="fva-full-name">Brand</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="fva-full-name" name="name" value="<?=$row["brand"]?>">
+                                                            <input type="text" class="form-control" id="fva-full-name" name="brand" value="<?=$row["brand"]?>">
                                                         </div>
                                                     </div>
                                                 </div>
