@@ -85,7 +85,7 @@ if(isset($_POST["save"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="fva-full-name">Qty</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="fva-full-name" name="qty" value="<?=$row["qty"]?>" required>
+                                                            <input type="text" class="form-control" id="fva-full-name" name="qty" value="<?=$row["qty"]?>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -93,7 +93,7 @@ if(isset($_POST["save"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="fva-message">Product Type</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="fva-full-name" name="type" value="<?=$row["product_type"]?>" required>
+                                                            <input type="text" class="form-control" id="fva-full-name" name="type" value="<?=$row["product_type"]?>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -101,7 +101,7 @@ if(isset($_POST["save"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="fva-message">Model</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="fva-full-name" name="model" value="<?=$row["model"]?>" required>
+                                                            <input type="text" class="form-control" id="fva-full-name" name="model" value="<?=$row["model"]?>">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -124,7 +124,7 @@ if(isset($_POST["save"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="fva-full-name">Location</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="fva-full-name" name="location"  value="<?=$row["location"]?>" required>
+                                                            <input type="text" class="form-control" id="fva-full-name" name="location"  value="<?=$row["location"]?>">
                                                         </div>
                                                     </div>
                                                 </div>
