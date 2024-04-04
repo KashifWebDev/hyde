@@ -73,13 +73,18 @@ $development_name = $dev_res["name"];
         $pack = $result["pack"];
         $count++;
         $rows .= "<tr>
-                    <td>".$result["id"]."</td>
-                    <td>".$result["pack"]."</td>
                     <td>".$result["qty"]."</td>
                     <td>".$result["location"]."</td>
+                    <td>".$result["product_type"]."</td>
+                    <td>".$result["brand"]."</td>
                     <td>".$result["model"]."</td>
+                    <td>31-Jan-2024</td>
                     <td><img src='../images/site/uploads/".$result["image"]."' alt='Reference Image' width='100' height='100'></td>
-                    <td><a href='unit-details.php?id=".$result["id"]."'><span class='nk-menu-icon'><em class='icon ni ni-eye'></em></span></a></td>
+                    <td>
+                        <a href='unit-details.php?id=".$result["id"]."' class='btn btn-primary'>View</a>
+                        <a href='https://www.hydecontract.ie/' target='_blank' class='btn btn-success'>Reorder</a>
+                        <a href='edit.php?id=".$result["id"]."'  class='btn btn-secondary'>Edit</a>
+                    </td>
                 </tr>";
     }
 ?>
@@ -128,9 +133,11 @@ $development_name = $dev_res["name"];
                                                 <div class="toggle-expand-content" data-content="pageMenu">
                                                     <ul class="nk-block-tools g-3">
                                                         <li class="nk-block-tools-opt">
-                                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalForm">
-                                                                <em class="icon ni ni-plus"></em>Add New Unit
-                                                            </button>
+                                                            <?php if($_SESSION["user"]["is_admin"] == 1){ ?>
+                                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalForm">
+                                                                    <em class="icon ni ni-plus"></em>Add New Unit
+                                                                </button>
+                                                            <?php } ?>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -172,11 +179,12 @@ $development_name = $dev_res["name"];
                                                                 <table class="datatable-init nowrap table">
                                                                     <thead>
                                                                     <tr>
-                                                                        <th>ID</th>
-                                                                        <th>Pack</th>
                                                                         <th>Qty.</th>
                                                                         <th>Location</th>
+                                                                        <th>Product Type</th>
+                                                                        <th>Brand</th>
                                                                         <th>Model</th>
+                                                                        <th>Warranty</th>
                                                                         <th>Reference Image</th>
                                                                         <th>Actions</th>
                                                                     </tr>

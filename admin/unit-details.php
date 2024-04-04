@@ -36,11 +36,11 @@ $row = mysqli_fetch_assoc($res);
                             <div class="d-flex flex-column align-items-center mt-4">
 
                                 <img width="350px" height="350px" src="../images/site/uploads/<?=$row["image"]?>" alt="">
-<!--                                <a style="width: 250px;" href="#"-->
-<!--                                   class="btn btn-round btn-primary center mt-2">-->
-<!--                                    <em class="icon ni ni-cart"></em>-->
-<!--                                    <span>Re-order Now</span>-->
-<!--                                </a>-->
+                                <a style="width: 250px;" href="https://www.hydecontract.ie/" target="_blank"
+                                   class="btn btn-round btn-primary center mt-2">
+                                    <em class="icon ni ni-cart"></em>
+                                    <span>Re-order Now</span>
+                                </a>
                             </div>
                         </div>
                         <div class="col-md-8">
@@ -52,7 +52,7 @@ $row = mysqli_fetch_assoc($res);
                                 <li class="list-group-item"><span class="fw-bold">Brand: </span><?=$row["brand"]?></li>
                                 <li class="list-group-item"><span class="fw-bold">Model: </span><?=$row["model"]?></li>
                                 <li class="list-group-item"><span class="fw-bold">Description: </span><?=$row["description"]?></li>
-<!--                                <li class="list-group-item"><span class="fw-bold">Warranty Start Date: </span> In Warranty</li>-->
+                                <li class="list-group-item"><span class="fw-bold">Warranty Start Date: </span> 31-Jan-2024</li>
                             </ul>
                         </div>
                     </div>

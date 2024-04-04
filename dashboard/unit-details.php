@@ -1,4 +1,5 @@
 <?php
+require '../admin/unit-details.php'; exit();
 require '../app/db.php';
 $id = $_GET["id"];
 $s = "SELECT * from units WHERE id = $id";

@@ -1,4 +1,8 @@
 <?php
+require '../admin/development-view.php';
+exit(); die();
+
+
 require '../app/db.php';
 if(isset($_POST["save"])) {
     $errMsg = null;
