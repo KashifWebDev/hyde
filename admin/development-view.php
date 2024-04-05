@@ -83,7 +83,9 @@ $development_name = $dev_res["name"];
                     <td>
                         <a href='unit-details.php?id=".$result["id"]."' class='btn btn-primary'>View</a>
                         <a href='https://www.hydecontract.ie/' target='_blank' class='btn btn-success'>Reorder</a>
-                        <a href='edit.php?id=".$result["id"]."'  class='btn btn-secondary'>Edit</a>
+                        ";
+        if($_SESSION["user"]["is_admin"]) $rows .= "<a href='edit.php?id=".$result["id"]."'  class='btn btn-secondary'>Edit</a>";
+        $rows .= "
                     </td>
                 </tr>";
     }
