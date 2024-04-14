@@ -1,5 +1,13 @@
 <?php
 require '../app/db.php';
+$data = [
+        ["pic" => "https://cdn.shopify.com/s/files/1/1009/5484/files/RK2A1128_copy_1024x1024.jpg?v=1700225575", "name" => "East Village Bowery Pack/ 295 Units"],
+        ["pic" => "https://cdn.shopify.com/s/files/1/1009/5484/files/17_1024x1024.jpg?v=1700222130", "name" => "East Village Fulton Pack/ 295 Units"],
+        ["pic" => "https://cdn.shopify.com/s/files/1/1009/5484/files/8_a84a3f43-9901-4cdd-bc08-d21436a50ff6_1024x1024.jpg?v=1700218149", "name" => "East Village Noho Pack/ 295 Units"],
+        ["pic" => "https://cdn.shopify.com/s/files/1/1009/5484/files/RK2A3585_1024x1024.jpg?v=1700235814", "name" => "Sandyford Central Studio/ 204 Units"],
+        ["pic" => "https://cdn.shopify.com/s/files/1/1009/5484/files/RK2A3585_1024x1024.jpg?v=1700235814", "name" => "Sandyford Central 1 Bed/ 204 Units
+"],
+];
 ?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
@@ -32,32 +40,14 @@ require '../app/db.php';
 
                                 <div class="nk-block" >
                                     <div class="nk-block">
-                                        <div class="d-flex">
-                                            <div class="border-custom">
-                                                <a href="developments.php">
-                                                    <div class="d-flex center">
-                                                        <div class="flex-grow-1 py-3 d-flex ml-5 flex-column">
-                                                            <b class="fs-12px" style="color: #00c4cc">INVENTORY</b>
-                                                            <span>1 Development(s)</span>
-                                                        </div>
-                                                        <div>
-                                                            <i class="fa-angle-down fa-solid mr-2" style="font-size: 21px;color: #00c4cc""></i>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="border-custom ml-5">
-                                                <a href="gallery.php">
-                                                    <div class="d-flex center">
-                                                        <div class="flex-grow-1 py-3 d-flex ml-5 flex-column">
-                                                            <b class="fs-13px" style="color: #00c4cc">Gallery</b>
-                                                            <span>5 Projects</span>
-                                                        </div>
-                                                        <div>
-                                                            <i class="fa-angle-down fa-solid mr-2" style="font-size: 21px;color: #00c4cc""></i>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                        <div class="bg-white p-4" style="border-radius: 25px;">
+                                            <div class="row">
+                                                <?php foreach ($data as $block): ?>
+                                                <div class="col-md-4 mb-4">
+                                                    <img src="<?=$block["pic"]?>" alt="">
+                                                    <p class="center"><?=$block["name"]?> </p>
+                                                </div>
+                                                <?php endforeach; ?>
                                             </div>
                                         </div>
                                     </div>

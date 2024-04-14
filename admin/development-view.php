@@ -73,16 +73,14 @@ $development_name = $dev_res["name"];
         $pack = $result["pack"];
         $count++;
         $rows .= "<tr>
-                    <td>".$result["qty"]."</td>
-                    <td>".$result["location"]."</td>
-                    <td>".$result["product_type"]."</td>
-                    <td>".$result["brand"]."</td>
-                    <td>".$result["model"]."</td>
-                    <td>31-Jan-2024</td>
+                    <td class='fs-14px nowFont text-dark'>".$result["qty"]."</td>
+                    <td class='fs-14px nowFont text-dark'>".$result["location"]."</td>
+                    <td class='fs-14px nowFont text-dark'>".$result["product_type"]."</td>
+                    <td class='fs-14px nowFont text-dark'>31/01/2024</td>
                     <td><img src='../images/site/uploads/".$result["image"]."' alt='Reference Image' width='100' height='100'></td>
                     <td>
-                        <a href='unit-details.php?id=".$result["id"]."' class='btn btn-primary'>View</a>
-                        <a href='https://www.hydecontract.ie/' target='_blank' class='btn btn-success'>Reorder</a>
+                        <a href='unit-details.php?id=".$result["id"]."' class='btn btn-dark nowFont fs-14px'>View</a>
+                        <a href='https://www.hydecontract.ie/' target='_blank' class='btn btn-success lightColorBg nowFont fs-14px'>Reorder</a>
                         ";
         if($_SESSION["user"]["is_admin"]) $rows .= "<a href='edit.php?id=".$result["id"]."'  class='btn btn-secondary'>Edit</a>";
         $rows .= "
@@ -110,23 +108,32 @@ $development_name = $dev_res["name"];
                 <!-- content @s -->
 
                 <div class="nk-content ">
+                    <div class="nk-block-head nk-block-head-sm">
+                        <div class="d-flex between-center">
+                            <p class="text-white ubuntu fs-30">DEVELOPMENT UNITS</p>
+                            <p class="text-white ubuntu fs-38">WELCOME <span class="fs-49 northwell">back</span> <span class="text-uppercase"><?=$_SESSION["user"]["fullName"]?></span></p>
+                        </div>
+                    </div><!-- .nk-block-head -->
+                    <p class="m-0 lightColor fs-19px text-uppercase" style="margin-top: -37px !important;"><?=$development_name?></p>
+
                     <div class="container-fluid">
                         <div class="nk-content-inner">
                             <div class="nk-content-body">
-                                <div class="nk-block-head nk-block-head-sm">
+                                <div class="nk-block-head nk-block-head-sm p-0">
                                     <div class="nk-block-between g-3">
                                         <div class="nk-block-head-content">
-                                            <h3 class="nk-block-title page-title">Developments / <strong class="text-primary small"><?=$development_name?></strong></h3>
                                             <div class="nk-block-des text-soft">
                                                 <ul class="list-inline">
-                                                    <li>Total Units: <span class="text-base"><?=$count?></span></li>
-                                                    <li>Last Delivered: <span class="text-base">26 Feb, 2024 11:02 AM</span></li>
+                                                    <li> <span class="text-base"></span></li>
+                                                    <li> <span class="text-base"></span></li>
                                                 </ul>
                                             </div>
                                             <ul class="link-list-plain no-bdr">
-                                                <li><a href="#"><em class="icon ni ni-archive"></em><span>Pack: <?=$pack?></span></a></li>
-                                                <li><a href="#"><em class="icon ni ni-box"></em><span>Unit Number: <?=$headings["name"]?></span></a></li>
-                                                <li><a href="#"><em class="icon ni ni-bulb"></em><span>Ref: <?=$headings["ref"]?></span></a></li>
+                                                <li class="text-white fs-14px nowFont"><span style="font-weight: bold">Pack:</span> <span style="font-weight: normal"><?=$pack?></span></li>
+                                                <li class="text-white fs-14px nowFont"><span style="font-weight: bold">Unit Number:</span> <span style="font-weight: normal"><?=$headings["name"]?></span></li>
+                                                <li class="text-white fs-14px nowFont"><span style="font-weight: bold">Ref:</span> <span style="font-weight: normal"><?=$headings["ref"]?></span></li>
+                                                <li class="text-white fs-14px nowFont"><span style="font-weight: bold">Total Units:</span> <span style="font-weight: normal"><?=$count?></span></li>
+                                                <li class="text-white fs-14px nowFont"><span style="font-weight: bold">Last Delivered:</span> <span style="font-weight: normal">26 Feb, 2024 11:02 AM</span></li>
                                             </ul>
                                         </div>
                                         <div class="nk-block-head-content">
@@ -172,8 +179,8 @@ $development_name = $dev_res["name"];
                                                 <div class="components-preview">
                                                     <div class="nk-block nk-block-lg">
                                                         <div class="nk-block-head">
-                                                            <div class="nk-block-head-content">
-                                                                <h4 class="nk-block-title">Inventory Details</h4>
+                                                            <div class="nk-block-head-content d-flex justify-end">
+                                                                <h4 class="nk-block-title text-white ubuntu fs-22px">Inventory Details</h4>
                                                             </div>
                                                         </div>
                                                         <div class="card card-preview">
@@ -181,14 +188,12 @@ $development_name = $dev_res["name"];
                                                                 <table class="datatable-init nowrap table">
                                                                     <thead>
                                                                     <tr>
-                                                                        <th>Qty.</th>
-                                                                        <th>Location</th>
-                                                                        <th>Product Type</th>
-                                                                        <th>Brand</th>
-                                                                        <th>Model</th>
-                                                                        <th>Warranty</th>
-                                                                        <th>Reference Image</th>
-                                                                        <th>Actions</th>
+                                                                        <th>QTY</th>
+                                                                        <th>LOCATION</th>
+                                                                        <th>PRODUCT NAME</th>
+                                                                        <th>WARRANTY</th>
+                                                                        <th>IMAGE</th>
+                                                                        <th>ADD TO ORDER</th>
                                                                     </tr>
                                                                     </thead>
                                                                     <tbody>

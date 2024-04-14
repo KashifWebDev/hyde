@@ -14,22 +14,33 @@
     <div class="nk-sidebar-element nk-sidebar-body">
         <div class="nk-sidebar-content">
             <div class="nk-sidebar-menu" data-simplebar>
-                <ul class="nk-menu">
+                <ul class="nk-menu" style="height: 100vh">
                     <li class="nk-menu-item">
                         <a href="./" class="nk-menu-link">
                             <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
-                            <span class="nk-menu-text">Dashboard</span>
+                            <span class="nk-menu-text darkColor">Dashboard</span>
                         </a>
                     </li><!-- .nk-menu-item -->
 
                     <li class="nk-menu-heading">
-                        <h6 class="overline-title text-primary-alt">Quick Pages</h6>
+                        <h6 class="overline-title text-primary-alt darkColor">Quick Pages</h6>
                     </li>
                     <li class="nk-menu-item">
                         <a href="developments.php" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-text-rich"></em></span>
-                            <span class="nk-menu-text">My Developments</span>
+                            <span class="nk-menu-icon"><i class="fa-solid fa-truck-ramp-box"></i></span>
+                            <span class="nk-menu-text darkColor">Inventory</span>
                         </a>
+                    </li>
+                    <li class="nk-menu-item">
+                        <a href="gallery.php" class="nk-menu-link">
+                            <span class="nk-menu-icon"><i class="fa-regular fa-images"></i></span>
+                            <span class="nk-menu-text darkColor">Gallery</span>
+                        </a>
+                    </li>
+                    <li class="nk-menu-item">
+                        <div style="position: absolute; bottom: 0; left: 20px;">
+                                <img src="../images/site/logo.jpg" alt="" style="height: 100px;">
+                        </div>
                     </li>
                 </ul><!-- .nk-menu -->
             </div><!-- .nk-sidebar-menu -->

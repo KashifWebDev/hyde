@@ -25,10 +25,9 @@ $row = mysqli_fetch_assoc($res);
                 <!-- content @s -->
                 <div class="nk-content ">
                     <div class="nk-block-head nk-block-head-sm">
-                        <div class="nk-block-between">
-                            <div class="nk-block-head-content">
-                                <h3 class="nk-block-title page-title">Unit Details</h3>
-                            </div>
+                        <div class="d-flex between-center">
+                            <p class="text-white ubuntu fs-30">UNIT DETAILS</p>
+                            <p class="text-white ubuntu fs-38">WELCOME <span class="fs-49 northwell">back</span> <span class="text-uppercase"><?=$_SESSION["user"]["fullName"]?></span></p>
                         </div>
                     </div>
                     <div class="row">
@@ -37,22 +36,22 @@ $row = mysqli_fetch_assoc($res);
 
                                 <img width="350px" height="350px" src="../images/site/uploads/<?=$row["image"]?>" alt="">
                                 <a style="width: 250px;" href="https://www.hydecontract.ie/" target="_blank"
-                                   class="btn btn-round btn-primary center mt-2">
+                                   class="btn btn-round btn-primary center mt-2 lightColorBg nowFont fs-14px">
                                     <em class="icon ni ni-cart"></em>
                                     <span>Re-order Now</span>
                                 </a>
                             </div>
                         </div>
                         <div class="col-md-8">
-                            <ul class="list-group">
-                                <li class="list-group-item"><span class="fw-bold">Pack: </span><?=$row["pack"]?></li>
-                                <li class="list-group-item"><span class="fw-bold">Quantity: </span><?=$row["qty"]?></li>
-                                <li class="list-group-item"><span class="fw-bold">Location: </span><?=$row["location"]?></li>
-                                <li class="list-group-item"><span class="fw-bold">Product Type: </span><?=$row["product_type"]?></li>
-                                <li class="list-group-item"><span class="fw-bold">Brand: </span><?=$row["brand"]?></li>
-                                <li class="list-group-item"><span class="fw-bold">Model: </span><?=$row["model"]?></li>
-                                <li class="list-group-item"><span class="fw-bold">Description: </span><?=$row["description"]?></li>
-                                <li class="list-group-item"><span class="fw-bold">Warranty Start Date: </span> 31-Jan-2024</li>
+                            <ul class="list-group mt-4">
+                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Pack: </span><?=$row["pack"]?></p>
+                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Quantity: </span><?=$row["qty"]?></p>
+                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Location: </span><?=$row["location"]?></p>
+                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Product Type: </span><?=$row["product_type"]?></p>
+                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Brand: </span><?=$row["brand"]?></p>
+                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Model: </span><?=$row["model"]?></p>
+                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Description: </span><?=$row["description"]?></p>
+                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Warranty Start Date: </span> 31-Jan-2024</p>
                             </ul>
                         </div>
                     </div>
