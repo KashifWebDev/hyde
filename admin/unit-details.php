@@ -52,6 +52,7 @@ $row = mysqli_fetch_assoc($res);
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Model: </span><?=$row["model"]?></p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Description: </span><?=$row["description"]?></p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Warranty Start Date: </span> 31-Jan-2024</p>
+                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Warranty End Date: </span> 31-Jan-2029</p>
                             </ul>
                         </div>
                     </div>
