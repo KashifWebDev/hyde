@@ -29,6 +29,7 @@
 
 .border-custom{width: 300px; /* border: 2px solid red; */ padding: 10px; border-radius: 0px 50px 50px 0px; background: white;}
 .darkColor{color: #373737 !important;}
+.darkBgColor{background-color: #373737 !important;}
 .ubuntu{font-family: "Ubuntu", sans-serif;}
 .northwell{font-family: "Northwell Alt";}
 .nowFont{font-family: "Now Light";}
@@ -37,7 +38,7 @@
 .fs-38{font-size: 38px!important;}
 .fs-49{font-size: 49px!important;}
 .lightColor{color: #00c4cc;}
-.lightColorBg{background-color: #00c4cc;}
+.lightColorBg{background-color: #00c4cc !important;}
 
 
 html { font-family: sans-serif; line-height: 1.15; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
@@ -1720,7 +1721,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 
 .page-item:last-child .page-link { border-top-right-radius: 4px; border-bottom-right-radius: 4px; }
 
-.page-item.active .page-link { z-index: 3; color: #fff; background-color: #6576ff; border-color: #6576ff; }
+.page-item.active .page-link { z-index: 3; color: #fff; background-color: #00c4cc; border-color: #00c4cc; }
 
 .page-item.disabled .page-link { color: #dbdfea; pointer-events: none; cursor: auto; background-color: #fff; border-color: #e5e9f2; }
 
@@ -10491,7 +10492,7 @@ body.nav-shown { overflow: hidden; }
 
 .nk-menu-icon .icon { font-size: 24px; letter-spacing: normal; vertical-align: middle; color: currentColor; transition: color .4s, background-color .4s; }
 
-.nk-menu-link:hover .nk-menu-icon, .nk-menu-item.active > .nk-menu-link .nk-menu-icon, .nk-menu-item.current-menu > .nk-menu-link .nk-menu-icon { color: #7f8dff; }
+.nk-menu-link:hover .nk-menu-icon, .nk-menu-item.active > .nk-menu-link .nk-menu-icon, .nk-menu-item.current-menu > .nk-menu-link .nk-menu-icon { color: #00c4cc; }
 
 .is-theme .nk-menu-link:hover .nk-menu-icon, .is-theme .nk-menu-item.active > .nk-menu-link .nk-menu-icon, .is-theme .nk-menu-item.current-menu > .nk-menu-link .nk-menu-icon { color: #fff; }
 
@@ -11425,7 +11426,7 @@ h6 .badge { margin-left: 0.5rem; }
 
 @media (min-width: 1540px) { .card-aside { width: 380px; } }
 
-.user-avatar, [class^="user-avatar"]:not([class*="-group"]) { border-radius: 50%; height: 40px; width: 40px; display: flex; justify-content: center; align-items: center; color: #fff; background: #798bff; font-size: 14px; font-weight: 500; letter-spacing: 0.06em; flex-shrink: 0; position: relative; }
+.user-avatar, [class^="user-avatar"]:not([class*="-group"]) { border-radius: 50%; height: 40px; width: 40px; display: flex; justify-content: center; align-items: center; color: #fff; background: #00c4cc; font-size: 14px; font-weight: 500; letter-spacing: 0.06em; flex-shrink: 0; position: relative; }
 
 .user-avatar + .user-info, [class^="user-avatar"]:not([class*="-group"]) + .user-info { margin-left: 1rem; }
 

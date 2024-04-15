@@ -79,7 +79,7 @@ $development_name = $dev_res["name"];
                     <td class='fs-14px nowFont text-dark'>31/01/2024</td>
                     <td><img src='../images/site/uploads/".$result["image"]."' alt='Reference Image' width='100' height='100'></td>
                     <td>
-                        <a href='unit-details.php?id=".$result["id"]."' class='btn btn-dark nowFont fs-14px'>View</a>
+                        <a href='unit-details.php?id=".$result["id"]."' class='btn btn-dark nowFont darkBgColor fs-14px'>View</a>
                         <a href='https://www.hydecontract.ie/' target='_blank' class='btn btn-success lightColorBg nowFont fs-14px'>Reorder</a>
                         ";
         if($_SESSION["user"]["is_admin"]) $rows .= "<a href='edit.php?id=".$result["id"]."'  class='btn btn-secondary'>Edit</a>";

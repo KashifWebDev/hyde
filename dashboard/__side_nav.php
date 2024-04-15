@@ -7,7 +7,7 @@
         </div>
         <div class="nk-sidebar-brand">
             <a href="" class="logo-link nk-sidebar-logo">
-                <img class="logo-light logo-img" src="../images/site/uploads/<?=$_SESSION['user']['logo']?>" srcset="./images/logo2x.png 2x" alt="logo">
+                <img class="logo-light logo-img" src="../images/site/uploads/<?=$_SESSION['user']['logo']?>" alt="logo">
             </a>
         </div>
     </div><!-- .nk-sidebar-element -->
@@ -39,7 +39,7 @@
                     </li>
                     <li class="nk-menu-item">
                         <div style="position: absolute; bottom: 0; left: 20px;">
-                                <img src="../images/site/logo.jpg" alt="" style="height: 100px;">
+                                <img src="../images/site/HYDE_LOGO_DARKEST_GREY_Normal.png" alt="" style="height: 100px;">
                         </div>
                     </li>
                 </ul><!-- .nk-menu -->

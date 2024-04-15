@@ -1,12 +1,31 @@
 <?php
 require '../app/db.php';
 $data = [
-        ["pic" => "https://cdn.shopify.com/s/files/1/1009/5484/files/RK2A1128_copy_1024x1024.jpg?v=1700225575", "name" => "East Village Bowery Pack/ 295 Units"],
-        ["pic" => "https://cdn.shopify.com/s/files/1/1009/5484/files/17_1024x1024.jpg?v=1700222130", "name" => "East Village Fulton Pack/ 295 Units"],
-        ["pic" => "https://cdn.shopify.com/s/files/1/1009/5484/files/8_a84a3f43-9901-4cdd-bc08-d21436a50ff6_1024x1024.jpg?v=1700218149", "name" => "East Village Noho Pack/ 295 Units"],
-        ["pic" => "https://cdn.shopify.com/s/files/1/1009/5484/files/RK2A3585_1024x1024.jpg?v=1700235814", "name" => "Sandyford Central Studio/ 204 Units"],
-        ["pic" => "https://cdn.shopify.com/s/files/1/1009/5484/files/RK2A3585_1024x1024.jpg?v=1700235814", "name" => "Sandyford Central 1 Bed/ 204 Units
-"],
+        [
+                "pic" => "https://cdn.shopify.com/s/files/1/1009/5484/files/RK2A1128_copy_1024x1024.jpg?v=1700225575",
+            "name" => "East Village Bowery Pack/ 295 Units",
+            "link" => "https://www.hydecontract.ie/pages/east-village-bowery-pack-295-units"
+        ],
+        [
+                "pic" => "https://cdn.shopify.com/s/files/1/1009/5484/files/17_1024x1024.jpg?v=1700222130",
+            "name" => "East Village Fulton Pack/ 295 Units",
+            "link" => "https://www.hydecontract.ie/pages/east-village-fulton-pack-295-units"
+        ],
+        [
+                "pic" => "https://cdn.shopify.com/s/files/1/1009/5484/files/8_a84a3f43-9901-4cdd-bc08-d21436a50ff6_1024x1024.jpg?v=1700218149",
+            "name" => "East Village Noho Pack/ 295 Units",
+            "link" => "https://www.hydecontract.ie/pages/east-village-295-units"
+        ],
+        [
+                "pic" => "https://cdn.shopify.com/s/files/1/1009/5484/files/RK2A0282_1024x1024.jpg?v=1704813010",
+            "name" => "Belcamp/ 46 Units",
+            "link" => "https://www.hydecontract.ie/pages/belcamp-46-units-green"
+        ],
+        [
+                "pic" => "https://cdn.shopify.com/s/files/1/1009/5484/files/RK2A0754_copy_1024x1024.jpg?v=1704803089",
+            "name" => "Belcamp/ 46 Units",
+            "link" => "https://www.hydecontract.ie/pages/belcamp-46-units"
+        ],
 ];
 ?>
 <!DOCTYPE html>
@@ -44,8 +63,10 @@ $data = [
                                             <div class="row">
                                                 <?php foreach ($data as $block): ?>
                                                 <div class="col-md-4 mb-4">
-                                                    <img src="<?=$block["pic"]?>" alt="">
-                                                    <p class="center"><?=$block["name"]?> </p>
+                                                    <a href="<?=$block["link"]?>" target="_blank">
+                                                        <img src="<?=$block["pic"]?>" alt="">
+                                                        <p class="center"><?=$block["name"]?> </p>
+                                                    </a>
                                                 </div>
                                                 <?php endforeach; ?>
                                             </div>
