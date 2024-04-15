@@ -8,7 +8,7 @@
     <!-- Page Title  -->
     <title><?=isset($title) ? $title : ''?> | Hyde Interiors</title>
     <!-- StyleSheets  -->
-    <link rel="stylesheet" href="../assets/css/dashlite.css?ver=2.4.1">
+    <link rel="stylesheet" href="../assets/css/dashlite.css?ver=2.4.2">
     <link id="skin-default" rel="stylesheet" href="../assets/css/theme.css?ver=2.4.0">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
