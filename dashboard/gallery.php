@@ -65,7 +65,7 @@ $data = [
                                                 <div class="col-md-4 mb-4">
                                                     <a href="<?=$block["link"]?>" target="_blank">
                                                         <img src="<?=$block["pic"]?>" alt="">
-                                                        <p class="center"><?=$block["name"]?> </p>
+                                                        <p class="center lightColor"><?=$block["name"]?> </p>
                                                     </a>
                                                 </div>
                                                 <?php endforeach; ?>
