@@ -98,7 +98,7 @@ $error = false;
                                         </div>
                                     </div><!-- .foem-group -->
                                     <div class="form-group">
-                                        <button name="login" type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
+                                        <button name="login" type="submit" class="btn btn-lg btn-primary btn-block  lightColorBg nowFont fs-14px border-0">Sign in</button>
                                     </div>
                                 </form><!-- form -->
 <!--                                <div class="form-note-s2 pt-4"> New on our platform? <a href="html/pages/auths/auth-register.html">Create an account</a>-->
@@ -118,13 +118,13 @@ $error = false;
                                 <div class="nk-block-between">
                                     <ul class="nav nav-sm">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Terms & Condition</a>
+                                            <a class="nav-link lightColor" href="#">Terms & Condition</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Privacy Policy</a>
+                                            <a class="nav-link lightColor" href="#">Privacy Policy</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#">Help</a>
+                                            <a class="nav-link lightColor" href="#">Help</a>
                                         </li>
                                     </ul><!-- .nav -->
                                 </div>

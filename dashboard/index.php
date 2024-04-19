@@ -38,7 +38,7 @@ require '../app/db.php';
                                                     <div class="d-flex center">
                                                         <div class="flex-grow-1 py-3 d-flex ml-5 flex-column">
                                                             <b class="fs-12px" style="color: #00c4cc">INVENTORY</b>
-                                                            <span>1 Development(s)</span>
+                                                            <span class="darkColor">1 Development(s)</span>
                                                         </div>
                                                         <div>
                                                             <i class="fa-angle-down fa-solid mr-2" style="font-size: 21px;color: #00c4cc""></i>
@@ -51,7 +51,7 @@ require '../app/db.php';
                                                     <div class="d-flex center">
                                                         <div class="flex-grow-1 py-3 d-flex ml-5 flex-column">
                                                             <b class="fs-13px" style="color: #00c4cc">Gallery</b>
-                                                            <span>5 Projects</span>
+                                                            <span class="darkColor">5 Projects</span>
                                                         </div>
                                                         <div>
                                                             <i class="fa-angle-down fa-solid mr-2" style="font-size: 21px;color: #00c4cc""></i>
