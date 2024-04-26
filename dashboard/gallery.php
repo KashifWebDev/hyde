@@ -62,7 +62,7 @@ $data = [
                                         <div class="bg-white p-4" style="border-radius: 25px;">
                                             <div class="row">
                                                 <?php foreach ($data as $block): ?>
-                                                <div class="col-md-4 mb-4">
+                                                <div class="col-md-4 mb-4 justify-center">
                                                     <a href="<?=$block["link"]?>" target="_blank">
                                                         <img src="<?=$block["pic"]?>" alt="" height="325px">
                                                         <p class="center lightColor"><?=$block["name"]?> </p>
