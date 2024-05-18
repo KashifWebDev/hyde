@@ -17,8 +17,8 @@
                 <ul class="nk-menu" style="height: 100vh">
                     <li class="nk-menu-item">
                         <a href="./" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
-                            <span class="nk-menu-text darkColor">Dashboard</span>
+                            <span class="nk-menu-icon"><i class="fa-solid fa-chart-pie"></i></span>
+                            <span class="nk-menu-text darkColor">Home</span>
                         </a>
                     </li><!-- .nk-menu-item -->
 
@@ -28,13 +28,13 @@
                     <li class="nk-menu-item">
                         <a href="developments.php" class="nk-menu-link">
                             <span class="nk-menu-icon"><i class="fa-solid fa-truck-ramp-box"></i></span>
-                            <span class="nk-menu-text darkColor">Inventory</span>
+                            <span class="nk-menu-text darkColor">Inventory Tracking</span>
                         </a>
                     </li>
                     <li class="nk-menu-item">
                         <a href="gallery.php" class="nk-menu-link">
-                            <span class="nk-menu-icon"><i class="fa-regular fa-images"></i></span>
-                            <span class="nk-menu-text darkColor">Gallery</span>
+                            <span class="nk-menu-icon"><i class="fa-solid fa-house"></i></span>
+                            <span class="nk-menu-text darkColor">Shop-By-Development</span>
                         </a>
                     </li>
                     <li class="nk-menu-item">

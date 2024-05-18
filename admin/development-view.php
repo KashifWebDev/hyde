@@ -72,15 +72,15 @@ $development_name = $dev_res["name"];
     while($result = mysqli_fetch_assoc($r)){
         $pack = $result["pack"];
         $count++;
-        $rows .= "<tr>
+        $rows .= "<tr class='rowCenter'>
                     <td class='fs-14px nowFont text-dark'>".$result["qty"]."</td>
                     <td class='fs-14px nowFont text-dark'>".$result["location"]."</td>
                     <td class='fs-14px nowFont text-dark'>".$result["product_type"]."</td>
-                    <td class='fs-14px nowFont text-dark'>31/01/2024</td>
+                    <td class='fs-14px nowFont text-dark'>31/01/2024<br>-<br>31/01/2029 </td>
                     <td><img src='../images/site/uploads/".$result["image"]."' alt='Reference Image' width='100' height='100'></td>
                     <td>
                         <a href='unit-details.php?id=".$result["id"]."' class='btn btn-dark nowFont darkBgColor fs-14px'>View</a>
-                        <a href='https://www.hydecontract.ie/' target='_blank' class='btn btn-success lightColorBg nowFont fs-14px'>Reorder</a>
+                        <a href='https://www.hydecontract.ie/' target='_blank' class='btn btn-success lightColorBg nowFont fs-14px btnHover'>Review</a>
                         ";
         if($_SESSION["user"]["is_admin"]) $rows .= "<a href='edit.php?id=".$result["id"]."'  class='btn btn-secondary'>Edit</a>";
         $rows .= "
@@ -110,8 +110,8 @@ $development_name = $dev_res["name"];
                 <div class="nk-content ">
                     <div class="nk-block-head nk-block-head-sm">
                         <div class="d-flex between-center">
-                            <p class="text-white ubuntu fs-30">DEVELOPMENT UNITS</p>
-                            <p class="text-white ubuntu fs-38">WELCOME <span class="fs-49 northwell">back</span> <span class="text-uppercase"><?=$_SESSION["user"]["fullName"]?></span></p>
+                            <p class="text-white ubuntu fs-30"><span style="font-weight: bold">DEVELOPMENT UNITS</span> - INVENTORY TRACKING</p>
+                            <p class="text-white ubuntu fs-38 d-none">WELCOME <span class="fs-49 northwell">back</span> <span class="text-uppercase"><?=$_SESSION["user"]["fullName"]?></span></p>
                         </div>
                     </div><!-- .nk-block-head -->
                     <p class="m-0 lightColor fs-19px text-uppercase" style="margin-top: -37px !important;"><?=$development_name?></p>
@@ -187,7 +187,7 @@ $development_name = $dev_res["name"];
                                                             <div class="card-inner">
                                                                 <table class="datatable-init nowrap table">
                                                                     <thead>
-                                                                    <tr>
+                                                                    <tr class="rowCenter">
                                                                         <th>QTY</th>
                                                                         <th>LOCATION</th>
                                                                         <th>PRODUCT NAME</th>

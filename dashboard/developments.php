@@ -23,8 +23,8 @@ require '../app/db.php';
                     <div class="container-fluid">
                         <div class="nk-block-head nk-block-head-sm">
                             <div class="d-flex between-center">
-                                <p class="text-white ubuntu fs-30">INVENTORY</p>
-                                <p class="text-white ubuntu fs-38">WELCOME <span class="fs-49 northwell">back</span> <span class="text-uppercase"><?=$_SESSION["user"]["fullName"]?></span></p>
+                                <p class="text-white ubuntu fs-30">INVENTORY TRACKING</p>
+                                <p class="text-white ubuntu fs-38 d-none">WELCOME <span class="fs-49 northwell">back</span> <span class="text-uppercase"><?=$_SESSION["user"]["fullName"]?></span></p>
                             </div>
                         </div><!-- .nk-block-head -->
 

@@ -26,10 +26,11 @@ $row = mysqli_fetch_assoc($res);
                 <div class="nk-content ">
                     <div class="nk-block-head nk-block-head-sm">
                         <div class="d-flex between-center">
-                            <p class="text-white ubuntu fs-30">UNIT DETAILS</p>
-                            <p class="text-white ubuntu fs-38">WELCOME <span class="fs-49 northwell">back</span> <span class="text-uppercase"><?=$_SESSION["user"]["fullName"]?></span></p>
+                            <p class="text-white ubuntu fs-30 m-0"><span style="font-weight: bold">DEVELOPMENT UNITS</span> - INVENTORY TRACKING</p>
+                            <p class="text-white ubuntu fs-38 d-none">WELCOME <span class="fs-49 northwell">back</span> <span class="text-uppercase"><?=$_SESSION["user"]["fullName"]?></span></p>
                         </div>
                     </div>
+                    <p class="nowFont fs-22px lightColor m-0">PRODUCT DETAILS</p>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="d-flex flex-column align-items-center mt-4">
@@ -42,7 +43,10 @@ $row = mysqli_fetch_assoc($res);
                                 </a>
                             </div>
                         </div>
-                        <div class="col-md-8">
+                        <div class="col-md-4">
+                            test
+                        </div>
+                        <div class="col-md-4">
                             <ul class="list-group mt-4">
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Pack: </span><?=$row["pack"]?></p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Quantity: </span><?=$row["qty"]?></p>

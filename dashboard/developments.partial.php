@@ -9,7 +9,7 @@
             $res = mysqli_query($con, $s);
             ?>
             <?php while($block = mysqli_fetch_assoc($res)){ ?>
-                <div class="border-custom">
+                <div class="circle_parent">
                     <?php
                     $depID = $block["id"];
                     $s = "SELECT * from unit_tabs WHERE parent_id = $depID";
@@ -18,18 +18,19 @@
                     ?>
                     <div class="accordion border-0 bg-transparent" id="accordion-column-<?=$depID?>">
                         <div class="accordion-item">
-                            <a href="#" class="accordion-head collapsed" data-toggle="collapse" data-target="#accordion-item-<?=$depID?>">
-                                <h6 class="title">
-                                    <b class="ibmFont fs-12px lightColor m-0"><?=$block["name"]?></b>
-                                    <p class="ibmFont fs-12px m-0" style="font-weight: 500">
-                                        <?=$unitCounts?> items
-                                    </p>
-                                </h6>
-                                <span class="accordion-icon"></span>
+                            <a href="#" class="accordion-head collapsed p-0" data-toggle="collapse" data-target="#accordion-item-<?=$depID?>">
+                                <div class="d-flex center h-100px">
+                                    <div class="flex-grow-1 py-4 d-flex ml-5 flex-column">
+                                        <b class="fs-12px" style="color: #00c4cc"><?=$block["name"]?></b>
+                                        <span class="darkColor"><?=$unitCounts?> items</span>
+                                    </div>
+                                    <div class="border-custom align-items-center border-custom d-flex h-100" id="arrowParentDiv">
+                                        <span id="arrow" class="accordion-icon mr-2 text-white fs-30"></span>
+                                    </div>
+                                </div>
                             </a>
                             <div class="accordion-body collapse" id="accordion-item-<?=$depID?>" data-parent="#accordion-column-<?=$depID?>">
                                 <div class="accordion-inner">
-
                                     <?php if($unitCounts){ ?>
                                         <ul class="list-group list-group-flush">
                                             <p class="m-0 px-2 py-1 fs-12px" style="background-color: #cfcfcf;">Development Units</p>

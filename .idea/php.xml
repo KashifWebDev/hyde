@@ -32,6 +32,7 @@
       <path value="$PROJECT_DIR$/test2/vendor/voku/portable-utf8" />
     </include_path>
   </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
   <component name="PhpStanOptionsConfiguration">
     <option name="transferred" value="true" />
   </component>

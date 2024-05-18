@@ -27,7 +27,9 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-.border-custom{width: 300px; /* border: 2px solid red; */ padding: 10px; border-radius: 0px 50px 50px 0px; background: white;}
+.border-custom{padding: 10px; border-radius: 0px 50px 50px 0px; background: white; background-color: #dfb8ac}
+.border-custom > i{margin-left: 2px;font-size: 21px;}
+.circle_parent{width: 300px; border-radius: 0px 50px 50px 0px; background: white; align-items: center; display: grid;}
 .darkColor{color: #373737 !important;}
 .darkBgColor{background-color: #373737 !important;}
 .ubuntu{font-family: "Ubuntu", sans-serif;}
@@ -39,6 +41,32 @@
 .fs-49{font-size: 49px!important;}
 .lightColor{color: #00c4cc;}
 .lightColorBg{background-color: #00c4cc !important;}
+#arrowParentDiv{padding-left: 4rem !important;}
+
+div > a.collapsed > div > div#arrowParentDiv{
+  padding: 10px;
+  border-radius: 0px 50px 50px 0px;
+  background-color: #dfb8ac;
+}
+div > a:not(.collapsed) > div > div#arrowParentDiv{
+  padding: 10px;
+  border-radius: 0px 50px 50px 0px;
+  background-color: white;
+}
+div > a:not(.collapsed) > div > div > span#arrow {
+  color: #dfb8ac !important;
+}
+.rowCenter td, .rowCenter th{
+  text-align: -webkit-center;
+}
+.btnHover:hover{
+  background-color: #ceedea !important;
+  color: #5ac5c0 !important;
+  border: 1px solid #ceedea !important;
+  transition: .1s all;
+}
+
+
 
 
 html { font-family: sans-serif; line-height: 1.15; -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
