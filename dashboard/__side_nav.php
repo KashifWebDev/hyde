@@ -32,7 +32,7 @@
                         </a>
                     </li>
                     <li class="nk-menu-item">
-                        <a href="gallery.php" class="nk-menu-link">
+                        <a href="developments.php" class="nk-menu-link">
                             <span class="nk-menu-icon"><i class="fa-solid fa-house"></i></span>
                             <span class="nk-menu-text darkColor">Shop-By-Development</span>
                         </a>

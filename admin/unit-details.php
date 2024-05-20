@@ -23,7 +23,7 @@ $row = mysqli_fetch_assoc($res);
                 <?php require '__top_bar.php'; ?>
                 <!-- main header @e -->
                 <!-- content @s -->
-                <div class="nk-content ">
+                <div class="nk-content pl-4">
                     <div class="nk-block-head nk-block-head-sm">
                         <div class="d-flex between-center">
                             <p class="text-white ubuntu fs-30 m-0"><span style="font-weight: bold">DEVELOPMENT UNITS</span> - INVENTORY TRACKING</p>
@@ -32,21 +32,7 @@ $row = mysqli_fetch_assoc($res);
                     </div>
                     <p class="nowFont fs-22px lightColor m-0">PRODUCT DETAILS</p>
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="d-flex flex-column align-items-center mt-4">
-
-                                <img width="350px" height="350px" src="../images/site/uploads/<?=$row["image"]?>" alt="">
-                                <a style="width: 250px;" href="https://www.hydecontract.ie/" target="_blank"
-                                   class="btn btn-round btn-primary center mt-2 lightColorBg nowFont fs-14px">
-                                    <em class="icon ni ni-cart"></em>
-                                    <span>Re-order Now</span>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            test
-                        </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 pl-4">
                             <ul class="list-group mt-4">
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Pack: </span><?=$row["pack"]?></p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Quantity: </span><?=$row["qty"]?></p>
@@ -58,6 +44,31 @@ $row = mysqli_fetch_assoc($res);
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Warranty Start Date: </span> 31-Jan-2024</p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Warranty End Date: </span> 31-Jan-2029</p>
                             </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="py-5 px-5" style="background-color: #cfcfcf; max-width: 300px;">
+                                <p>Warranty Form:</p>
+                                <p>
+                                    To initiate the process of filing your
+                                    warranty claim, kindly press the
+                                    "Submit" button below. A dedicated
+                                    member of the Hyde team will
+                                    promptly reach out to you within 48
+                                    hours to assist with your inquiry. Please
+                                    ensure that all relevant images and
+                                    information are included in the online
+                                    form. Thank you for your cooperation
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex flex-column align-items-center mt-4">
+
+                                <img width="350px" height="350px" src="../images/site/uploads/<?=$row["image"]?>" alt="">
+                                <a href="https://www.hydecontract.ie/" target="_blank" class='btn btn-success lightColorBg nowFont fs-14px btnHover mt-4'>
+                                    Request Replacement
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>

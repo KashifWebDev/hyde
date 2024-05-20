@@ -35,6 +35,11 @@ if(isset($_POST["save"])){
     $sql = "UPDATE units SET qty=$qty, location = '$location', product_type= '$type', brand = '$brand', model = '$model', description = '$description', image = '$image'
             WHERE id=$id";
     $success = mysqli_query($con, $sql);
+
+
+    $sql = "SELECT * FROM units where id=$id";
+    $res =mysqli_query($con, $sql);
+    $row = mysqli_fetch_assoc($res);
 }
 ?>
 <!DOCTYPE html>
@@ -115,6 +120,9 @@ if(isset($_POST["save"])){
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <img height="100px" src="../images/site/uploads/<?=$row["image"]?>">
                                                 </div>
                                             </div>
                                         </div>

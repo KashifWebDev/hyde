@@ -80,7 +80,7 @@ $development_name = $dev_res["name"];
                     <td><img src='../images/site/uploads/".$result["image"]."' alt='Reference Image' width='100' height='100'></td>
                     <td>
                         <a href='unit-details.php?id=".$result["id"]."' class='btn btn-dark nowFont darkBgColor fs-14px'>View</a>
-                        <a href='https://www.hydecontract.ie/' target='_blank' class='btn btn-success lightColorBg nowFont fs-14px btnHover'>Review</a>
+                        <a href='https://www.hydecontract.ie/' target='_blank' class='btn btn-success lightColorBg nowFont fs-14px btnHover'>Request Replacement</a>
                         ";
         if($_SESSION["user"]["is_admin"]) $rows .= "<a href='edit.php?id=".$result["id"]."'  class='btn btn-secondary'>Edit</a>";
         $rows .= "
@@ -142,7 +142,7 @@ $development_name = $dev_res["name"];
                                                 <div class="toggle-expand-content" data-content="pageMenu">
                                                     <ul class="nk-block-tools g-3">
                                                         <li class="nk-block-tools-opt">
-                                                            <?php if($_SESSION["user"]["is_admin"] == 1){ ?>
+                                                            <?php if($_SESSION["user"]["is_admin"] == 1 && false){ ?>
                                                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalForm">
                                                                     <em class="icon ni ni-plus"></em>Add New Unit
                                                                 </button>

@@ -7,7 +7,7 @@
         </div>
         <div class="nk-sidebar-brand">
             <a href="" class="logo-link nk-sidebar-logo">
-                <img class="logo-light logo-img" src="../images/site/nav-logo.png" srcset="./images/logo2x.png 2x" alt="logo">
+                <img class="logo-light logo-img" src="../images/site/uploads/<?=$_SESSION['user']['logo']?>" alt="logo">
             </a>
         </div>
     </div><!-- .nk-sidebar-element -->
@@ -16,9 +16,13 @@
             <div class="nk-sidebar-menu" data-simplebar>
                 <ul class="nk-menu">
                     <li class="nk-menu-item">
+<!--                        <a href="./" class="nk-menu-link">-->
+<!--                            <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>-->
+<!--                            <span class="nk-menu-text">Dashboard</span>-->
+<!--                        </a>-->
                         <a href="./" class="nk-menu-link">
-                            <span class="nk-menu-icon"><em class="icon ni ni-dashlite"></em></span>
-                            <span class="nk-menu-text">Dashboard</span>
+                            <span class="nk-menu-icon"><i class="fa-solid fa-chart-pie"></i></span>
+                            <span class="nk-menu-text darkColor">Home</span>
                         </a>
                     </li><!-- .nk-menu-item -->
 

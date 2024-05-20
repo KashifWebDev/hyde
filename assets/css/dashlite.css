@@ -59,6 +59,9 @@ div > a:not(.collapsed) > div > div > span#arrow {
 .rowCenter td, .rowCenter th{
   text-align: -webkit-center;
 }
+btnHover{
+  border-radius: 0px !important;
+}
 .btnHover:hover{
   background-color: #ceedea !important;
   color: #5ac5c0 !important;

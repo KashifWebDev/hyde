@@ -30,60 +30,58 @@ require '../app/db.php';
                         <div class="nk-content-inner">
                             <div class="nk-content-body">
                                 <div class="nk-block-head nk-block-head-sm">
-                                    <div class="nk-block-between">
-                                        <div class="nk-block-head-content">
-                                            <h3 class="nk-block-title page-title">Administrator Dashboard</h3>
-                                            <div class="nk-block-des text-soft">
-                                                <p>Welcome back Admin!</p>
-                                            </div>
-                                        </div>
+                                    <div class="d-flex between-center">
+                                        <p class="text-white ubuntu fs-30">HOME</p>
+                                        <p class="text-white ubuntu fs-38">WELCOME <span class="fs-49 northwell">back</span> <span class="text-uppercase"><?=$_SESSION["user"]["fullName"]?></span></p>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                </div><!-- .nk-block-head -->
 
-                    <div class="row g-gs">
-                        <div class="col-sm-3">
-                            <div class="card text-white bg-blue">
-                                <div class="card-inner">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <p class="card-text">Users</p>
-                                            <h5 class="card-title"><?=countRows('users')?></h5>
-                                        </div>
-                                        <div>
-                                            <em class="icon ni ni-users-fill" style="font-size: 52px;"></em>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="card text-white bg-success">
-                                <div class="card-inner">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <p class="card-text">Developments</p>
-                                            <h5 class="card-title"><?=countRows('developments')?></h5>
-                                        </div>
-                                        <div>
-                                            <em class="icon ni ni-building" style="font-size: 52px;"></em>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="card text-white bg-purple">
-                                <div class="card-inner">
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <p class="card-text">Units</p>
-                                            <h5 class="card-title"><?=countRows('units')?></h5>
-                                        </div>
-                                        <div>
-                                            <em class="icon ni ni-table-view" style="font-size: 52px;"></em>
+                                <div class="nk-block" >
+                                    <div class="nk-block">
+                                        <div class="d-flex">
+
+                                            <div class="circle_parent">
+                                                <a href="#" class="h-100">
+                                                    <div class="d-flex center h-100">
+                                                        <div class="flex-grow-1 py-4 d-flex ml-5 flex-column">
+                                                            <b class="fs-12px" style="color: #00c4cc">Users</b>
+                                                            <span class="darkColor"><?=countRows('users');?> User(s)</span>
+                                                        </div>
+                                                        <div class="border-custom align-items-center border-custom d-flex h-100 px-4">
+                                                            <i class="fa-angle-down fa-solid mr-2 text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                            <div class="circle_parent" style="margin-left: 25px;">
+                                                <a href="#" class="h-100">
+                                                    <div class="d-flex center h-100">
+                                                        <div class="flex-grow-1 py-4 d-flex ml-5 flex-column">
+                                                            <b class="fs-12px" style="color: #00c4cc">Developments</b>
+                                                            <span class="darkColor"><?=countRows('developments');?> Developments</span>
+                                                        </div>
+                                                        <div class="border-custom align-items-center border-custom d-flex h-100 px-4">
+                                                            <i class="fa-angle-down fa-solid mr-2 text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                            <div class="circle_parent" style="margin-left: 25px;">
+                                                <a href="#" class="h-100">
+                                                    <div class="d-flex center h-100">
+                                                        <div class="flex-grow-1 py-4 d-flex ml-5 flex-column">
+                                                            <b class="fs-12px" style="color: #00c4cc">Unts</b>
+                                                            <span class="darkColor"><?=countRows('units');?> Unts</span>
+                                                        </div>
+                                                        <div class="border-custom align-items-center border-custom d-flex h-100 px-4">
+                                                            <i class="fa-angle-down fa-solid mr-2 text-white"></i>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
