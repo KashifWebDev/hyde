@@ -44,7 +44,7 @@ $rowcount = mysqli_num_rows($res);
                                             $res = mysqli_query($con, $s);
                                             ?>
                                             <?php while($block = mysqli_fetch_assoc($res)){ ?>
-                                                <div class="col-md-3">
+                                                <div class="col-sm-12 col-md-6 col-lg-4 mt-3">
                                                     <div class="circle_parent">
                                                         <?php
                                                         $depID = $block["id"];

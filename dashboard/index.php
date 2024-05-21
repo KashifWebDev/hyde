@@ -32,35 +32,39 @@ require '../app/db.php';
 
                                 <div class="nk-block" >
                                     <div class="nk-block">
-                                        <div class="d-flex">
+                                        <div class="row">
 
-                                            <div class="circle_parent">
-                                                <a href="developments.php" class="h-100">
-                                                    <div class="d-flex center h-100">
-                                                        <div class="flex-grow-1 py-4 d-flex ml-5 flex-column">
-                                                            <b class="fs-12px" style="color: #00c4cc">Inventory Tracking</b>
-                                                            <span class="darkColor">1 Development(s)</span>
+                                            <div class="col-sm-12 col-md-6 col-lg-4 mt-3">
+                                                <div class="circle_parent">
+                                                    <a href="developments.php" class="h-100">
+                                                        <div class="d-flex center h-100">
+                                                            <div class="flex-grow-1 py-4 d-flex ml-5 flex-column">
+                                                                <b class="fs-12px" style="color: #00c4cc">Inventory Tracking</b>
+                                                                <span class="darkColor">1 Development(s)</span>
+                                                            </div>
+                                                            <div class="border-custom align-items-center border-custom d-flex h-100 px-4">
+                                                                <i class="fa-angle-down fa-solid mr-2 text-white"></i>
+                                                            </div>
                                                         </div>
-                                                        <div class="border-custom align-items-center border-custom d-flex h-100 px-4">
-                                                            <i class="fa-angle-down fa-solid mr-2 text-white"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-6 col-lg-4 mt-3">
+                                                <div class="circle_parent">
+                                                    <a href="developments.php" class="h-100">
+                                                        <div class="d-flex center h-100">
+                                                            <div class="flex-grow-1 py-4 d-flex ml-5 flex-column">
+                                                                <b class="fs-12px" style="color: #00c4cc">Shop by Development</b>
+                                                                <span class="darkColor">1 Developments</span>
+                                                            </div>
+                                                            <div class="border-custom align-items-center border-custom d-flex h-100 px-4">
+                                                                <i class="fa-angle-down fa-solid mr-2 text-white"></i>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                </a>
+                                                    </a>
+                                                </div>
                                             </div>
 
-                                            <div class="circle_parent" style="margin-left: 25px;">
-                                                <a href="developments.php" class="h-100">
-                                                    <div class="d-flex center h-100">
-                                                        <div class="flex-grow-1 py-4 d-flex ml-5 flex-column">
-                                                            <b class="fs-12px" style="color: #00c4cc">Shop by Development</b>
-                                                            <span class="darkColor">1 Developments</span>
-                                                        </div>
-                                                        <div class="border-custom align-items-center border-custom d-flex h-100 px-4">
-                                                            <i class="fa-angle-down fa-solid mr-2 text-white"></i>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
 
                                         </div>
                                     </div>
