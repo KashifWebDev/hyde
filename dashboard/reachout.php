@@ -143,7 +143,14 @@ if(isset($_POST["warranty_email"])){
 
                 <div class="nk-content ">
                     <div class="container-fluid">
-
+                        <?php if(isset($form1)){ ?>
+                            <div class="container mb-4">
+                                <div class="example-alert">
+                                    <div class="alert alert-fill alert-success alert-icon">
+                                        <em class="icon ni ni-check-circle"></em> <strong>Mail was Sent!</strong> Our team will come back with a quotation within 24 hours.</div>
+                                </div>
+                            </div>
+                        <?php } ?>
                         <div class="nk-content-inner">
                             <div class="nk-content-body">
                                 <div class="row gx-4 justify-content-around">
