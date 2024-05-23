@@ -64,20 +64,20 @@ if (isset($_POST["sendMail"])) {
 
 if(isset($_POST["warranty_email"])){
     $agentsCompany = $_POST['agents-company'];
-    $agentsName = $_POST['w-agents-name'];
-    $agentsContactPhone = $_POST['w-agents-contact-phone'];
-    $agentsEmail = $_POST['w-agents-email'];
-    $propertyAddress = $_POST['w-property-address'];
-    $isTenanted = $_POST['w-is-tenanted'];
+    $agentsName = $_POST['agents-name'];
+    $agentsContactPhone = $_POST['agents-contact-phone'];
+    $agentsEmail = $_POST['agents-email'];
+    $propertyAddress = $_POST['property-address'];
+    $isTenanted = $_POST['is-tenanted'];
     $keysAvailable = isset($_POST['w-keys-available']) ? $_POST['w-keys-available'] : '';
-    $tenantName = isset($_POST['w-tenant-name']) ? $_POST['w-tenant-name'] : '';
-    $tenantEmail = isset($_POST['w-tenant-email']) ? $_POST['w-tenant-email'] : '';
-    $tenantPhone = isset($_POST['w-tenant-phone']) ? $_POST['w-tenant-phone'] : '';
+    $tenantName = isset($_POST['tenant-name']) ? $_POST['tenant-name'] : '';
+    $tenantEmail = isset($_POST['tenant-email']) ? $_POST['tenant-email'] : '';
+    $tenantPhone = isset($_POST['tenant-phone']) ? $_POST['tenant-phone'] : '';
     $issueDescription = $_POST['issue-description'];
-    $orderReference = $_POST['w-order-reference'];
-    $deliveryDate = $_POST['w-delivery-date'];
+    $orderReference = $_POST['order-reference'];
+    $deliveryDate = $_POST['delivery-date'];
     $inspectionTime = $_POST['inspection-time'];
-    $notes = $_POST['w-notes'];
+    $notes = $_POST['notes'];
 
     // Email details
     $to = "kmalik748@gmail.com";
