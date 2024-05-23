@@ -180,9 +180,9 @@ if(isset($_POST["warranty_email"])){
                             <div class="d-flex flex-column align-items-center mt-4">
 
                                 <img  height="300px" src="../images/site/uploads/<?=$row["image"]?>" alt="">
-                                <button  type='button' class='btn btn-success lightColorBg nowFont fs-14px btnHover mt-4' data-toggle='modal' data-target='#modalTabs'>
+                                <a href='../dashboard/reachout.php' class='btn btn-success lightColorBg nowFont fs-14px btnHover mt-4'>
                                     Request Replacement
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>

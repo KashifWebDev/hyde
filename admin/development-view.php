@@ -53,111 +53,6 @@
     }
 
 
-if (isset($_POST["sendMail"])) {
-    $agentsName = $_POST['agents-name'];
-    $agentsContactPhone = $_POST['agents-contact-phone'];
-    $agentsEmail = $_POST['agents-email'];
-    $propertyAddress = $_POST['property-address'];
-    $isTenanted = $_POST['is-tenanted'];
-    $keysAvailable = $_POST['keys-available'];
-    $invoiceTo = $_POST['invoice-to'];
-    $orderReference = $_POST['order-reference'];
-    $deliveryDate = $_POST['delivery-date'];
-    $deliveryTime = $_POST['delivery-time'];
-    $notes = $_POST['notes'];
-
-    // Email detail
-    $to = "kmalik748@gmail.com";
-    $subject = "New Billable Order - HYDE Portal";
-
-    // Email content
-    $message = "
-    <html>
-    <head>
-        <title>New Billable Order - HYDE Portal</title>
-    </head>
-    <body>
-        <h2>New Billable Order - BASIC Form Details</h2>
-        <p><strong>Agent's Name:</strong> $agentsName</p>
-        <p><strong>Agent's Contact Phone:</strong> $agentsContactPhone</p>
-        <p><strong>Agent's Email:</strong> $agentsEmail</p>
-        <p><strong>Property Address:</strong> $propertyAddress</p>
-        <p><strong>Is the Property Tenanted?:</strong> $isTenanted</p>
-        <p><strong>Are the Keys Available for Collection?:</strong> $keysAvailable</p>
-        <p><strong>Who Will Hyde Make the Invoice Out To?:</strong> $invoiceTo</p>
-        <p><strong>Purchase Order/Order Reference:</strong> $orderReference</p>
-        <p><strong>Please Pick a Delivery Date:</strong> $deliveryDate</p>
-        <p><strong>Preferred Time for Delivery:</strong> $deliveryTime</p>
-        <p><strong>Notes:</strong> $notes</p>
-    </body>
-    </html>
-    ";
-
-    // Headers
-    $headers = "MIME-Version: 1.0" . "\r\n";
-    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-    $headers .= 'From: <portal@hyde.com>' . "\r\n"; //
-
-    if (mail($to, $subject, $message, $headers)) {
-        $form1 = true;
-    } else {
-        echo "Failed to send email.";
-    }
-}
-
-if(isset($_POST["warranty_email"])){
-        $agentsName = $_POST['agents-name'];
-        $agentsContactPhone = $_POST['agents-contact-phone'];
-        $agentsEmail = $_POST['agents-email'];
-        $propertyAddress = $_POST['property-address'];
-        $isTenanted = $_POST['is-tenanted'];
-        $tenantContactDetails = $_POST['tenant-contact-details'];
-        $keysAvailable = $_POST['keys-available'];
-        $issueDescription = $_POST['issue-description'];
-        $orderReference = $_POST['order-reference'];
-        $deliveryDate = $_POST['delivery-date'];
-        $inspectionTime = $_POST['inspection-time'];
-        $notes = $_POST['notes'];
-
-        // Email details
-        $to = "kmalik748@gmail.com";
-        $subject = "Warranty Request - HYDE Portal";
-
-        // Email content
-        $message = "
-    <html>
-    <head>
-        <title>Warranty Request - HYDE Portal</title>
-    </head>
-    <body>
-        <h2>Warranty Request</h2>
-        <p><strong>Agent's Name:</strong> $agentsName</p>
-        <p><strong>Agent's Contact Phone:</strong> $agentsContactPhone</p>
-        <p><strong>Agent's Email:</strong> $agentsEmail</p>
-        <p><strong>Property Address:</strong> $propertyAddress</p>
-        <p><strong>Is the Property Tenanted?:</strong> $isTenanted</p>
-        <p><strong>Tenant Contact Details:</strong> $tenantContactDetails</p>
-        <p><strong>Are the Keys Available for Collection?:</strong> $keysAvailable</p>
-        <p><strong>Issue Description:</strong> $issueDescription</p>
-        <p><strong>Purchase Order/Order Reference:</strong> $orderReference</p>
-        <p><strong>Please Pick a Delivery Date:</strong> $deliveryDate</p>
-        <p><strong>Preferred Time for Inspection:</strong> $inspectionTime</p>
-        <p><strong>Notes:</strong> $notes</p>
-    </body>
-    </html>
-    ";
-
-        $headers = "MIME-Version: 1.0" . "\r\n";
-        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-        $headers .= 'From: <portal@hyde.com>' . "\r\n";
-
-        if (mail($to, $subject, $message, $headers)) {
-            $form1 = true;
-        } else {
-            echo "Failed to send warranty request.";
-        }
-}
-
 $depID = $_GET["id"];
 
 
@@ -189,9 +84,9 @@ $development_name = $dev_res["name"];
                     <td><img src='../images/site/uploads/".$result["image"]."' alt='Reference Image' style='max-height: 120px'></td>
                     <td>
                         <a href='unit-details.php?id=".$result["id"]."' class='btn btn-dark nowFont darkBgColor fs-14px'>View</a>
-                        <button type='button' class='btn btn-success lightColorBg nowFont fs-14px btnHover' data-toggle='modal' data-target='#modalTabs'>
+                        <a href='../dashboard/reachout.php' class='btn btn-success lightColorBg nowFont fs-14px btnHover' >
                         Request Replacement
-                        </button>
+                        </a>
                         ";
         if($_SESSION["user"]["is_admin"]) $rows .= "<a href='edit.php?id=".$result["id"]."'  class='btn btn-secondary'>Edit</a>";
         $rows .= "
