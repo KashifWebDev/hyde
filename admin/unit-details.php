@@ -147,39 +147,39 @@ if(isset($_POST["warranty_email"])){
                     <?php } ?>
                     <p class="nowFont fs-22px lightColor m-0">PRODUCT DETAILS</p>
                     <div class="row">
-                        <div class="col-md-4 pl-4">
+                        <div class="col-md-4 pl-6">
                             <ul class="list-group mt-4">
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Pack: </span><?=$row["pack"]?></p>
-                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Quantity: </span><?=$row["qty"]?></p>
+                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Quantity: </span>ALL</p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Location: </span><?=$row["location"]?></p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Product Type: </span><?=$row["product_type"]?></p>
-                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Brand: </span><?=$row["brand"]?></p>
+                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Brand: </span>HYDE CONTRACT</p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Model: </span><?=$row["model"]?></p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Description: </span><?=$row["description"]?></p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Warranty Start Date: </span> 31-Jan-2024</p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Warranty End Date: </span> 31-Jan-2029</p>
                             </ul>
                         </div>
-                        <div class="col-md-4">
-                            <div class="py-5 px-5" style="background-color: #cfcfcf; max-width: 300px;">
-                                <p>Warranty Form:</p>
-                                <p>
-                                    To initiate the process of filing your
-                                    warranty claim, kindly press the
-                                    "Submit" button below. A dedicated
-                                    member of the Hyde team will
-                                    promptly reach out to you within 48
-                                    hours to assist with your inquiry. Please
-                                    ensure that all relevant images and
-                                    information are included in the online
-                                    form. Thank you for your cooperation
-                                </p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
+<!--                        <div class="col-md-4">-->
+<!--                            <div class="py-5 px-5" style="background-color: #cfcfcf; max-width: 300px;">-->
+<!--                                <p>Warranty Form:</p>-->
+<!--                                <p>-->
+<!--                                    To initiate the process of filing your-->
+<!--                                    warranty claim, kindly press the-->
+<!--                                    "Submit" button below. A dedicated-->
+<!--                                    member of the Hyde team will-->
+<!--                                    promptly reach out to you within 48-->
+<!--                                    hours to assist with your inquiry. Please-->
+<!--                                    ensure that all relevant images and-->
+<!--                                    information are included in the online-->
+<!--                                    form. Thank you for your cooperation-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <div class="col-md-6">
                             <div class="d-flex flex-column align-items-center mt-4">
 
-                                <img width="350px" height="350px" src="../images/site/uploads/<?=$row["image"]?>" alt="">
+                                <img  height="300px" src="../images/site/uploads/<?=$row["image"]?>" alt="">
                                 <button  type='button' class='btn btn-success lightColorBg nowFont fs-14px btnHover mt-4' data-toggle='modal' data-target='#modalTabs'>
                                     Request Replacement
                                 </button>
@@ -209,7 +209,7 @@ if(isset($_POST["warranty_email"])){
             <div class="modal-content">
                 <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
                 <div class="modal-body modal-body-md">
-                    <h4 class="title">Request Replacement</h4>
+                    <h4 class="title">REQUEST REPLACEMENT</h4>
                     <ul class="nk-nav nav nav-tabs">
                         <li class="nav-item">
                             <a class="nav-link active" data-toggle="tab" href="#tabItem1">New Billable Order</a>

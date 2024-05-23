@@ -25,7 +25,7 @@ require '../app/db.php';
                             <div class="nk-content-body">
                                 <div class="nk-block-head nk-block-head-sm">
                                     <div class="d-flex between-center">
-                                        <p class="text-white ubuntu fs-30">HOME</p>
+                                        <p class="text-white ubuntu fs-30">CLIENT OVERVIEW</p>
                                         <p class="text-white ubuntu fs-38">WELCOME <span class="fs-49 northwell">back</span> <span class="text-uppercase"><?=$_SESSION["user"]["fullName"]?></span></p>
                                     </div>
                                 </div><!-- .nk-block-head -->
@@ -49,21 +49,21 @@ require '../app/db.php';
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-12 col-md-6 col-lg-4 mt-3">
-                                                <div class="circle_parent">
-                                                    <a href="developments.php" class="h-100">
-                                                        <div class="d-flex center h-100">
-                                                            <div class="flex-grow-1 py-4 d-flex ml-5 flex-column">
-                                                                <b class="fs-12px" style="color: #00c4cc">Shop by Development</b>
-                                                                <span class="darkColor">1 Developments</span>
-                                                            </div>
-                                                            <div class="border-custom align-items-center border-custom d-flex h-100 px-4">
-                                                                <i class="fa-angle-down fa-solid mr-2 text-white"></i>
-                                                            </div>
-                                                        </div>
-                                                    </a>
-                                                </div>
-                                            </div>
+<!--                                            <div class="col-sm-12 col-md-6 col-lg-4 mt-3">-->
+<!--                                                <div class="circle_parent">-->
+<!--                                                    <a href="developments.php" class="h-100">-->
+<!--                                                        <div class="d-flex center h-100">-->
+<!--                                                            <div class="flex-grow-1 py-4 d-flex ml-5 flex-column">-->
+<!--                                                                <b class="fs-12px" style="color: #00c4cc">Shop by Development</b>-->
+<!--                                                                <span class="darkColor">1 Developments</span>-->
+<!--                                                            </div>-->
+<!--                                                            <div class="border-custom align-items-center border-custom d-flex h-100 px-4">-->
+<!--                                                                <i class="fa-angle-down fa-solid mr-2 text-white"></i>-->
+<!--                                                            </div>-->
+<!--                                                        </div>-->
+<!--                                                    </a>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
 
 
                                         </div>

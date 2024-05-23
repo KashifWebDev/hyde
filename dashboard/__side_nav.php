@@ -31,12 +31,12 @@
                             <span class="nk-menu-text darkColor">Inventory Tracking</span>
                         </a>
                     </li>
-                    <li class="nk-menu-item">
-                        <a href="developments.php" class="nk-menu-link">
-                            <span class="nk-menu-icon"><i class="fa-solid fa-house"></i></span>
-                            <span class="nk-menu-text darkColor">Shop-By-Development</span>
-                        </a>
-                    </li>
+<!--                    <li class="nk-menu-item">-->
+<!--                        <a href="developments.php" class="nk-menu-link">-->
+<!--                            <span class="nk-menu-icon"><i class="fa-solid fa-house"></i></span>-->
+<!--                            <span class="nk-menu-text darkColor">Shop-By-Development</span>-->
+<!--                        </a>-->
+<!--                    </li>-->
                     <li class="nk-menu-item">
                         <div style="position: absolute; bottom: 0; left: 20px;">
                                 <img src="../images/site/HYDE_LOGO_DARKEST_GREY_Normal.png" alt="" style="height: 100px;">

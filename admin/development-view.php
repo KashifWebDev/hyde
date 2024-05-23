@@ -162,16 +162,18 @@ $depID = $_GET["id"];
 
 
 $s = "SELECT * FROM unit_tabs WHERE id = $depID";
+
 $res = mysqli_query($con, $s);
 $headings = mysqli_fetch_assoc($res);
 
 $dev_id = $headings["parent_id"];
 $s = "SELECT * FROM developments WHERE id = $dev_id";
+
 $r = mysqli_query($con, $s);
 $dev_res = mysqli_fetch_assoc($r);
 $development_name = $dev_res["name"];
 
-    $s = "SELECT * FROM units WHERE unit_tab_id = $depID";
+    $s = "SELECT * FROM units WHERE unit_tab_id = $depID order by id";
     $r = mysqli_query($con, $s);
     $rows = "";
     $count = 0;
@@ -179,11 +181,12 @@ $development_name = $dev_res["name"];
         $pack = $result["pack"];
         $count++;
         $rows .= "<tr class='rowCenter'>
-                    <td class='fs-14px nowFont text-dark'>".$result["qty"]."</td>
+                    <td class='fs-14px nowFont text-dark'>".$count."</td>
                     <td class='fs-14px nowFont text-dark'>".$result["location"]."</td>
                     <td class='fs-14px nowFont text-dark'>".$result["product_type"]."</td>
-                    <td class='fs-14px nowFont text-dark'>31/01/2024<br>-<br>31/01/2029 </td>
-                    <td><img src='../images/site/uploads/".$result["image"]."' alt='Reference Image' width='100' height='100'></td>
+                    <td class='fs-14px nowFont text-dark'>ALL</td>
+                    <td class='fs-14px nowFont text-dark'>".strrep($result["warranty_start"])."<br>-<br>".strrep($result["warranty_end"])." </td>
+                    <td><img src='../images/site/uploads/".$result["image"]."' alt='Reference Image' style='max-height: 120px'></td>
                     <td>
                         <a href='unit-details.php?id=".$result["id"]."' class='btn btn-dark nowFont darkBgColor fs-14px'>View</a>
                         <button type='button' class='btn btn-success lightColorBg nowFont fs-14px btnHover' data-toggle='modal' data-target='#modalTabs'>
@@ -195,6 +198,10 @@ $development_name = $dev_res["name"];
                     </td>
                 </tr>";
     }
+    //echo $rows;exit(); die();
+function strrep($str){
+    return str_replace(".", "/", $str);
+}
 ?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
@@ -306,9 +313,10 @@ $development_name = $dev_res["name"];
                                                                 <table class="datatable-init nowrap table">
                                                                     <thead>
                                                                     <tr class="rowCenter">
-                                                                        <th>QTY</th>
+                                                                        <th>ID</th>
                                                                         <th>LOCATION</th>
-                                                                        <th>PRODUCT NAME</th>
+                                                                        <th>PRODUCT TYPE</th>
+                                                                        <th>QUANTITY</th>
                                                                         <th>WARRANTY</th>
                                                                         <th>IMAGE</th>
                                                                         <th>ADD TO ORDER</th>
