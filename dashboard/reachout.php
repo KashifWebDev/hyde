@@ -165,7 +165,7 @@ if(isset($_POST["warranty_email"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="agents-name">Agent's Company</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="agents-company">
+                                                            <input type="text" class="form-control" name="agents-company" id="agents-company">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -173,7 +173,7 @@ if(isset($_POST["warranty_email"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="agents-name">Agent's Name</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="agents-name">
+                                                            <input type="text" class="form-control" name="agents-name" id="agents-name">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -181,7 +181,7 @@ if(isset($_POST["warranty_email"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="agents-contact-phone">Agent's Contact Phone</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="agents-contact-phone">
+                                                            <input type="text" class="form-control" id="agents-contact-phone" name="agents-contact-phone">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -189,7 +189,7 @@ if(isset($_POST["warranty_email"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="agents-email">Agent's Email</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="email" class="form-control" id="agents-email">
+                                                            <input type="email" class="form-control" id="agents-email" name="agents-email">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -197,7 +197,7 @@ if(isset($_POST["warranty_email"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="property-address">Property Address</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="property-address">
+                                                            <input type="text" class="form-control" id="property-address" name="property-address">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -205,7 +205,7 @@ if(isset($_POST["warranty_email"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="is-tenanted">Is the Property Tenanted?</label>
                                                         <div class="form-control-wrap">
-                                                            <select class="form-control" id="is-tenanted">
+                                                            <select class="form-control" id="is-tenanted" name="is-tenanted">
                                                                 <option value="">Select...</option>
                                                                 <option value="yes">Yes</option>
                                                                 <option value="no">No</option>
@@ -217,7 +217,7 @@ if(isset($_POST["warranty_email"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="keys-available">Are the Keys Available for Collection?</label>
                                                         <div class="form-control-wrap">
-                                                            <select class="form-control" id="keys-available">
+                                                            <select class="form-control" id="keys-available" name="keys-available">
                                                                 <option value="">Select...</option>
                                                                 <option value="yes">Yes</option>
                                                                 <option value="no">No</option>
@@ -229,7 +229,7 @@ if(isset($_POST["warranty_email"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="tenant-name">Tenant's Name</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="tenant-name">
+                                                            <input type="text" class="form-control" id="tenant-name" name="tenant-name">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -237,7 +237,7 @@ if(isset($_POST["warranty_email"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="tenant-email">Tenant's Email</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="email" class="form-control" id="tenant-email">
+                                                            <input type="email" class="form-control" id="tenant-email" name="tenant-email">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -245,7 +245,7 @@ if(isset($_POST["warranty_email"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="tenant-phone">Tenant's Phone Number</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="tenant-phone">
+                                                            <input type="text" class="form-control" id="tenant-phone" name="tenant-phone">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -253,7 +253,7 @@ if(isset($_POST["warranty_email"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="invoice-to">Who Will Hyde Make the Invoice Out To?</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="invoice-to">
+                                                            <input type="text" class="form-control" id="invoice-to" name="invoice-to">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -261,7 +261,7 @@ if(isset($_POST["warranty_email"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="order-reference">Purchase Order/Order Reference</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="order-reference">
+                                                            <input type="text" class="form-control" id="order-reference" name="order-reference">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -269,7 +269,7 @@ if(isset($_POST["warranty_email"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="delivery-date">Please Pick a Delivery Date</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="date" class="form-control" id="delivery-date">
+                                                            <input type="date" class="form-control" id="delivery-date" name="delivery-date">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -277,7 +277,7 @@ if(isset($_POST["warranty_email"])){
                                                     <div class="form-group">
                                                         <label class="form-label">Preferred Time for Delivery</label>
                                                         <div class="form-control-wrap">
-                                                            <select class="form-control" id="delivery-time">
+                                                            <select class="form-control" id="delivery-time" name="delivery-time">
                                                                 <option value="">Select...</option>
                                                                 <option value="morning">Morning</option>
                                                                 <option value="afternoon">Afternoon</option>
@@ -289,7 +289,7 @@ if(isset($_POST["warranty_email"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="notes">Notes</label>
                                                         <div class="form-control-wrap">
-                                                            <textarea class="form-control" id="notes" rows="4"></textarea>
+                                                            <textarea class="form-control" id="notes" name="notes" rows="4"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -311,7 +311,7 @@ if(isset($_POST["warranty_email"])){
                                                     <div class="form-group">
                                                         <label class="form-label" for="agents-name">Agent's Company</label>
                                                         <div class="form-control-wrap">
-                                                            <input type="text" class="form-control" id="agents-company">
+                                                            <input type="text" class="form-control" name="agents-company" id="agents-company">
                                                         </div>
                                                     </div>
                                                 </div>
