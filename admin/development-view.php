@@ -247,8 +247,7 @@ function strrep($str){
                                                 <li class="text-white fs-14px nowFont"><span style="font-weight: bold">Pack:</span> <span style="font-weight: normal"><?=$pack?></span></li>
                                                 <li class="text-white fs-14px nowFont"><span style="font-weight: bold">Unit Number:</span> <span style="font-weight: normal"><?=$headings["name"]?></span></li>
                                                 <li class="text-white fs-14px nowFont"><span style="font-weight: bold">Ref:</span> <span style="font-weight: normal"><?=$headings["ref"]?></span></li>
-                                                <li class="text-white fs-14px nowFont"><span style="font-weight: bold">Total Units:</span> <span style="font-weight: normal"><?=$count?></span></li>
-                                                <li class="text-white fs-14px nowFont"><span style="font-weight: bold">Last Delivered:</span> <span style="font-weight: normal">26 Feb, 2024 11:02 AM</span></li>
+                                                <li class="text-white fs-14px nowFont"><span style="font-weight: bold">Last Delivered:</span> <span style="font-weight: normal">26 Feb, 2024</span></li>
                                             </ul>
                                         </div>
                                         <div class="nk-block-head-content">
