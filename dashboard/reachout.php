@@ -10,14 +10,14 @@ if (isset($_POST["sendMail"])) {
     $propertyAddress = $_POST['property-address'];
     $isTenanted = $_POST['is-tenanted'];
     $keysAvailable = $_POST['keys-available'];
+    $tenantName = isset($_POST['tenant-name']) ? $_POST['tenant-name'] : '';
+    $tenantEmail = isset($_POST['tenant-email']) ? $_POST['tenant-email'] : '';
+    $tenantPhone = isset($_POST['tenant-phone']) ? $_POST['tenant-phone'] : '';
     $invoiceTo = $_POST['invoice-to'];
     $orderReference = $_POST['order-reference'];
     $deliveryDate = $_POST['delivery-date'];
     $deliveryTime = $_POST['delivery-time'];
     $notes = $_POST['notes'];
-    $tenantName = isset($_POST['tenant-name']) ? $_POST['tenant-name'] : '';
-    $tenantEmail = isset($_POST['tenant-email']) ? $_POST['tenant-email'] : '';
-    $tenantPhone = isset($_POST['tenant-phone']) ? $_POST['tenant-phone'] : '';
 
     // Email detail
     $to = "kmalik748@gmail.com";
@@ -120,6 +120,7 @@ if(isset($_POST["warranty_email"])){
         echo "Failed to send warranty request.";
     }
 }
+
 
 ?>
 <!DOCTYPE html>
