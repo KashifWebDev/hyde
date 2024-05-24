@@ -5,6 +5,10 @@ $s = "SELECT * from units WHERE id = $id";
 $res = mysqli_query($con, $s);
 $row = mysqli_fetch_assoc($res);
 
+$s = "SELECT name from unit_tabs WHERE id = ".$row["unit_tab_id"];
+$res = mysqli_query($con, $s);
+$apart = mysqli_fetch_assoc($res);
+
 
 
 if (isset($_POST["sendMail"])) {
@@ -149,15 +153,16 @@ if(isset($_POST["warranty_email"])){
                     <div class="row">
                         <div class="col-md-4 pl-6">
                             <ul class="list-group mt-4">
+                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Apartment Number: </span><?=$apart["name"]?></p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Pack: </span><?=$row["pack"]?></p>
-                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Quantity: </span>ALL</p>
+                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Quantity: </span><?=$row["qty"] == 0 ? 'ALL' : $row["qty"]?></p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Location: </span><?=$row["location"]?></p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Product Type: </span><?=$row["product_type"]?></p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Brand: </span>HYDE CONTRACT</p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Model: </span><?=$row["model"]?></p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Description: </span><?=$row["description"]?></p>
-                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Warranty Start Date: </span> 31-Jan-2024</p>
-                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Warranty End Date: </span> 31-Jan-2029</p>
+                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Warranty Start Date: </span> <?=str_replace(".", "/", $row["warranty_start"])?></p>
+                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Warranty End Date: </span> <?=str_replace(".", "/", $row["warranty_end"])?></p>
                             </ul>
                         </div>
 <!--                        <div class="col-md-4">-->

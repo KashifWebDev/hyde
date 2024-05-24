@@ -75,11 +75,12 @@ $development_name = $dev_res["name"];
     while($result = mysqli_fetch_assoc($r)){
         $pack = $result["pack"];
         $count++;
+        $qty = $result["qty"] == 0 ? 'ALL' : $result["qty"];
         $rows .= "<tr class='rowCenter'>
                     <td class='fs-14px nowFont text-dark'>".$count."</td>
                     <td class='fs-14px nowFont text-dark'>".$result["location"]."</td>
                     <td class='fs-14px nowFont text-dark'>".$result["product_type"]."</td>
-                    <td class='fs-14px nowFont text-dark'>ALL</td>
+                    <td class='fs-14px nowFont text-dark'>".$qty."</td>
                     <td class='fs-14px nowFont text-dark'>".strrep($result["warranty_start"])."<br>-<br>".strrep($result["warranty_end"])." </td>
                     <td><img src='../images/site/uploads/".$result["image"]."' alt='Reference Image' style='max-height: 120px'></td>
                     <td>
