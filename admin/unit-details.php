@@ -164,6 +164,9 @@ if(isset($_POST["warranty_email"])){
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Warranty Start Date: </span> <?=str_replace(".", "/", $row["warranty_start"])?></p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Warranty End Date: </span> <?=str_replace(".", "/", $row["warranty_end"])?></p>
                             </ul>
+                            <a href='../dashboard/reachout.php' class='btn btn-success lightColorBg nowFont fs-14px btnHover mt-4'>
+                                Request Replacement
+                            </a>
                         </div>
 <!--                        <div class="col-md-4">-->
 <!--                            <div class="py-5 px-5" style="background-color: #cfcfcf; max-width: 300px;">-->
@@ -183,11 +186,7 @@ if(isset($_POST["warranty_email"])){
 <!--                        </div>-->
                         <div class="col-md-6">
                             <div class="d-flex flex-column align-items-center mt-4">
-
                                 <img  height="300px" src="../images/site/uploads/<?=$row["image"]?>" alt="">
-                                <a href='../dashboard/reachout.php' class='btn btn-success lightColorBg nowFont fs-14px btnHover mt-4'>
-                                    Request Replacement
-                                </a>
                             </div>
                         </div>
                     </div>

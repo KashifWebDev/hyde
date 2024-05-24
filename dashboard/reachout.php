@@ -161,7 +161,7 @@ if(isset($_POST["warranty_email"])){
                                                 New Billable Order
                                             </button>
                                             <button  type='button' class='btn btn-success lightColorBg nowFont fs-17px btnHover mt-4' data-toggle='modal' data-target='#modalTabs2'>
-                                                Request Replacement
+                                                Warranty Replacement
                                             </button>
                                         </div>
                                     </div>
@@ -233,6 +233,14 @@ if(isset($_POST["warranty_email"])){
                                                         <option value="yes">Yes</option>
                                                         <option value="no">No</option>
                                                     </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12" id="w-keys-loc" style="display: none">
+                                            <div class="form-group">
+                                                <label class="form-label" for="keys-location">Location of Keys:</label>
+                                                <div class="form-control-wrap">
+                                                    <textarea class="form-control" id="keys-location" name="keys-location" rows="4"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -390,23 +398,23 @@ if(isset($_POST["warranty_email"])){
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-lg-6" id="w-keys-available-group" style="display: none;">
+                                            <div class="form-group">
+                                                <label class="form-label" for="w-keys-available">Are the Keys Available for Collection?</label>
+                                                <div class="form-control-wrap">
+                                                    <select class="form-control" id="w-keys-available" name="w-keys-available">
+                                                        <option value="" selected>Select...</option>
+                                                        <option value="yes">Yes</option>
+                                                        <option value="no">No</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="col-lg-12" id="keys-loc" style="display: none">
                                             <div class="form-group">
                                                 <label class="form-label" for="keys-location">Location of Keys:</label>
                                                 <div class="form-control-wrap">
                                                     <textarea class="form-control" id="keys-location" name="keys-location" rows="4"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6" id="w-keys-available-group" style="display: none;">
-                                            <div class="form-group">
-                                                <label class="form-label" for="w-keys-available">Are the Keys Available for Collection?</label>
-                                                <div class="form-control-wrap">
-                                                    <select class="form-control" id="w-keys-available" name="keys-available">
-                                                        <option value="" selected>Select...</option>
-                                                        <option value="yes">Yes</option>
-                                                        <option value="no">No</option>
-                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -519,23 +527,35 @@ if(isset($_POST["warranty_email"])){
         function toggleFields() {
             var isTenanted = document.getElementById('is-tenanted').value;
             var wIsTenanted = document.getElementById('w-is-tenanted').value;
+            var w_keys_available = document.getElementById('w-keys-available').value;
 
             // Toggle 'Keys Available for Collection' based on 'Is the Property Tenanted?' selection
             var keysAvailableGroup = document.getElementById('keys-available-group');
             var w_keysAvailableGroup = document.getElementById('w-keys-available-group');
             var keys_lock = document.getElementById('keys-loc');
+            var W_keys_lock = document.getElementById('w-keys-loc');
+
+
             keys_lock.style.display = 'none';
+            W_keys_lock.style.display = 'none';
             if (isTenanted === 'yes') {
+                W_keys_lock.style.display = 'none';
                 keysAvailableGroup.style.display = 'none';
             } else {
+                W_keys_lock.style.display = 'block';
                 keysAvailableGroup.style.display = 'block';
             }
             if (wIsTenanted === 'yes') {
-                keys_lock.style.display = 'none';
                 w_keysAvailableGroup.style.display = 'none';
             } else {
-                keys_lock.style.display = 'block';
                 w_keysAvailableGroup.style.display = 'block';
+            }
+
+
+            if (w_keys_available === 'yes') {
+                keys_lock.style.display = 'block';
+            } else {
+                keys_lock.style.display = 'none';
             }
 
             // Toggle 'Tenant's Name', 'Tenant's Email', and 'Tenant's Phone Number' based on 'Is the Property Tenanted?' selection
@@ -568,6 +588,7 @@ if(isset($_POST["warranty_email"])){
         // Call the toggleFields function when the selection changes for both forms
         document.getElementById('is-tenanted').addEventListener('change', toggleFields);
         document.getElementById('w-is-tenanted').addEventListener('change', toggleFields);
+        document.getElementById('w-keys-available').addEventListener('change', toggleFields);
         toggleFields(); // Call the function initially to set the initial state
     </script>
 </body>
