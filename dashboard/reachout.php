@@ -444,6 +444,14 @@ if(isset($_POST["warranty_email"])){
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
+                                                <label class="form-label">Preferred Date for Inspection</label>
+                                                <div class="form-control-wrap">
+                                                    <input type="date" class="form-control"  name="inspection-date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
                                                 <label class="form-label">Preferred Time for Inspection</label>
                                                 <div class="form-control-wrap">
                                                     <select class="form-control" id="inspection-time" name="inspection-time">
@@ -472,9 +480,17 @@ if(isset($_POST["warranty_email"])){
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-label" for="w-delivery-date">Please Pick a Delivery Date</label>
+                                                <label class="form-label" for="w-delivery-date">Pick a Delivery Date</label>
                                                 <div class="form-control-wrap">
                                                     <input type="date" class="form-control" id="w-delivery-date" name="delivery-date">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label class="form-label" for="w-order-reference">Preferred Delivery Time</label>
+                                                <div class="form-control-wrap">
+                                                    <input type="text" class="form-control" id="w-order-reference" name="order-reference">
                                                 </div>
                                             </div>
                                         </div>
