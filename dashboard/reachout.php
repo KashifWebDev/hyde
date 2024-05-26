@@ -236,23 +236,23 @@ if(isset($_POST["warranty_email"])){
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-12" id="w-keys-loc" style="display: none">
-                                            <div class="form-group">
-                                                <label class="form-label" for="keys-location">Location of Keys:</label>
-                                                <div class="form-control-wrap">
-                                                    <textarea class="form-control" id="keys-location" name="keys-location" rows="4"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="col-lg-6" id="keys-available-group" style="display: none;">
                                             <div class="form-group">
-                                                <label class="form-label" for="keys-available">Are the Keys Available for Collection?</label>
+                                                <label class="form-label" for="keys-available-1">Are the Keys Available for Collection?</label>
                                                 <div class="form-control-wrap">
-                                                    <select class="form-control" id="keys-available" name="keys-available">
+                                                    <select class="form-control" id="keys-available-1" name="keys-available-1">
                                                         <option value="">Select...</option>
                                                         <option value="yes">Yes</option>
                                                         <option value="no">No</option>
                                                     </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12" id="keys-loc-1" style="display: none">
+                                            <div class="form-group">
+                                                <label class="form-label" for="keys-location-1">Location of Keys:</label>
+                                                <div class="form-control-wrap">
+                                                    <textarea class="form-control" id="keys-location-1" name="keys-location-1" rows="4"></textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -544,21 +544,22 @@ if(isset($_POST["warranty_email"])){
             var isTenanted = document.getElementById('is-tenanted').value;
             var wIsTenanted = document.getElementById('w-is-tenanted').value;
             var w_keys_available = document.getElementById('w-keys-available').value;
+            var keys_available1 = document.getElementById('keys-available-1').value;
 
             // Toggle 'Keys Available for Collection' based on 'Is the Property Tenanted?' selection
             var keysAvailableGroup = document.getElementById('keys-available-group');
             var w_keysAvailableGroup = document.getElementById('w-keys-available-group');
             var keys_lock = document.getElementById('keys-loc');
-            var W_keys_lock = document.getElementById('w-keys-loc');
+            var keys_lock_1 = document.getElementById('keys-loc-1');
 
 
             keys_lock.style.display = 'none';
-            W_keys_lock.style.display = 'none';
+            keys_lock_1.style.display = 'none';
             if (isTenanted === 'yes') {
-                W_keys_lock.style.display = 'none';
+                keys_lock_1.style.display = 'none';
                 keysAvailableGroup.style.display = 'none';
             } else {
-                W_keys_lock.style.display = 'block';
+                keys_lock_1.style.display = 'block';
                 keysAvailableGroup.style.display = 'block';
             }
             if (wIsTenanted === 'yes') {
@@ -572,6 +573,11 @@ if(isset($_POST["warranty_email"])){
                 keys_lock.style.display = 'block';
             } else {
                 keys_lock.style.display = 'none';
+            }
+            if (keys_available1 === 'yes') {
+                keys_lock_1.style.display = 'block';
+            } else {
+                keys_lock_1.style.display = 'none';
             }
 
             // Toggle 'Tenant's Name', 'Tenant's Email', and 'Tenant's Phone Number' based on 'Is the Property Tenanted?' selection
@@ -605,6 +611,7 @@ if(isset($_POST["warranty_email"])){
         document.getElementById('is-tenanted').addEventListener('change', toggleFields);
         document.getElementById('w-is-tenanted').addEventListener('change', toggleFields);
         document.getElementById('w-keys-available').addEventListener('change', toggleFields);
+        document.getElementById('keys-available-1').addEventListener('change', toggleFields);
         toggleFields(); // Call the function initially to set the initial state
     </script>
 </body>
