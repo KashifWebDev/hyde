@@ -157,10 +157,12 @@ if(isset($_POST["warranty_email"])){
                                 <div class="container h-100">
                                     <div class="row gx-4 justify-content-around h-100">
                                         <div class="col-md-5 justify-around align-items-center h-100">
-                                            <button  type='button' class='btn btn-success lightColorBg nowFont fs-17px btnHover mt-4' data-toggle='modal' data-target='#modalTabs'>
+                                            <button  type='button' class='btn btn-success lightColorBg nowFont fs-17px btnHover mt-4' data-toggle='modal'
+                                                     data-target='#modalTabs'  data-backdrop="static" data-keyboard="false">
                                                 New Billable Order
                                             </button>
-                                            <button  type='button' class='btn btn-success lightColorBg nowFont fs-17px btnHover mt-4' data-toggle='modal' data-target='#modalTabs2'>
+                                            <button  type='button' class='btn btn-success lightColorBg nowFont fs-17px btnHover mt-4' data-toggle='modal'
+                                                     data-target='#modalTabs2'  data-backdrop="static" data-keyboard="false">
                                                 Warranty Replacement
                                             </button>
                                         </div>
@@ -174,7 +176,7 @@ if(isset($_POST["warranty_email"])){
 
 
 
-                <div class="modal fade" tabindex="-1" role="dialog" id="modalTabs">
+                <div class="modal fade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" id="modalTabs">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
@@ -336,7 +338,7 @@ if(isset($_POST["warranty_email"])){
                     </div>
                 </div>
 
-                <div class="modal fade" tabindex="-1" role="dialog" id="modalTabs2">
+                <div class="modal fade" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" id="modalTabs2">
                     <div class="modal-dialog modal-lg" role="document">
                         <div class="modal-content">
                             <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
