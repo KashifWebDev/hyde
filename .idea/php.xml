@@ -12,27 +12,38 @@
   </component>
   <component name="PhpIncludePathManager">
     <include_path>
-      <path value="$PROJECT_DIR$/test2/vendor/symfony/polyfill-intl-grapheme" />
-      <path value="$PROJECT_DIR$/test2/vendor/symfony/polyfill-iconv" />
-      <path value="$PROJECT_DIR$/test2/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/test2/vendor/symfony/polyfill-intl-normalizer" />
-      <path value="$PROJECT_DIR$/test2/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/test2/vendor/voku/portable-ascii" />
+      <path value="$PROJECT_DIR$/test2/vendor/voku/portable-utf8" />
+      <path value="$PROJECT_DIR$/test2/vendor/voku/anti-xss" />
+      <path value="$PROJECT_DIR$/test2/vendor/composer" />
       <path value="$PROJECT_DIR$/test2/vendor/markbaker/complex" />
       <path value="$PROJECT_DIR$/test2/vendor/maennchen/zipstream-php" />
-      <path value="$PROJECT_DIR$/test2/vendor/phpoffice/phpspreadsheet" />
-      <path value="$PROJECT_DIR$/test2/vendor/markbaker/matrix" />
-      <path value="$PROJECT_DIR$/test2/vendor/composer" />
-      <path value="$PROJECT_DIR$/test2/vendor/psr/http-factory" />
-      <path value="$PROJECT_DIR$/test2/vendor/psr/http-client" />
-      <path value="$PROJECT_DIR$/test2/vendor/psr/simple-cache" />
-      <path value="$PROJECT_DIR$/test2/vendor/psr/http-message" />
-      <path value="$PROJECT_DIR$/test2/vendor/voku/portable-ascii" />
-      <path value="$PROJECT_DIR$/test2/vendor/voku/anti-xss" />
       <path value="$PROJECT_DIR$/test2/vendor/myclabs/php-enum" />
-      <path value="$PROJECT_DIR$/test2/vendor/voku/portable-utf8" />
+      <path value="$PROJECT_DIR$/test2/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/test2/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/test2/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/test2/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/test2/vendor/symfony/polyfill-iconv" />
+      <path value="$PROJECT_DIR$/test2/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/test2/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/test2/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/test2/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/test2/vendor/symfony/polyfill-intl-grapheme" />
+      <path value="$PROJECT_DIR$/test2/vendor/symfony/polyfill-intl-normalizer" />
+      <path value="$PROJECT_DIR$/uploader/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/uploader/vendor/composer" />
+      <path value="$PROJECT_DIR$/uploader/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/uploader/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/uploader/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/uploader/vendor/maennchen/zipstream-php" />
+      <path value="$PROJECT_DIR$/uploader/vendor/phpoffice/phpspreadsheet" />
+      <path value="$PROJECT_DIR$/uploader/vendor/markbaker/matrix" />
+      <path value="$PROJECT_DIR$/uploader/vendor/markbaker/complex" />
     </include_path>
   </component>
-  <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
+  <component name="PhpProjectSharedConfiguration" php_language_level="8.1">
+    <option name="suggestChangeDefaultLanguageLevel" value="false" />
+  </component>
   <component name="PhpStanOptionsConfiguration">
     <option name="transferred" value="true" />
   </component>

@@ -1,5 +1,7 @@
 /import/
-/test2/
-
 
 /images/site/
+/test2/vendor
+/uploader/vendor
+/.idea
+/.idea/*

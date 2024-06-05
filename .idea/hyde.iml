@@ -20,6 +20,15 @@
       <excludeFolder url="file://$MODULE_DIR$/test2/vendor/voku/anti-xss" />
       <excludeFolder url="file://$MODULE_DIR$/test2/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/test2/vendor/voku/portable-utf8" />
+      <excludeFolder url="file://$MODULE_DIR$/uploader/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/uploader/vendor/maennchen/zipstream-php" />
+      <excludeFolder url="file://$MODULE_DIR$/uploader/vendor/markbaker/complex" />
+      <excludeFolder url="file://$MODULE_DIR$/uploader/vendor/markbaker/matrix" />
+      <excludeFolder url="file://$MODULE_DIR$/uploader/vendor/phpoffice/phpspreadsheet" />
+      <excludeFolder url="file://$MODULE_DIR$/uploader/vendor/psr/http-client" />
+      <excludeFolder url="file://$MODULE_DIR$/uploader/vendor/psr/http-factory" />
+      <excludeFolder url="file://$MODULE_DIR$/uploader/vendor/psr/http-message" />
+      <excludeFolder url="file://$MODULE_DIR$/uploader/vendor/psr/simple-cache" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
