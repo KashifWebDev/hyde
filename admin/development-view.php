@@ -204,7 +204,7 @@ function strrep($str){
                                                         </div>
                                                         <div class="card card-preview">
                                                             <div class="card-inner">
-                                                                <table class="datatable-init nowrap table">
+                                                                <table id="ExampleTable" class="datatable-init nowrap table">
                                                                     <thead>
                                                                     <tr class="rowCenter">
                                                                         <th>ID</th>
@@ -213,7 +213,7 @@ function strrep($str){
                                                                         <th>QUANTITY</th>
                                                                         <th>WARRANTY</th>
                                                                         <th>IMAGE</th>
-                                                                        <th>ADD TO ORDER</th>
+                                                                        <th>ACTION</th>
                                                                     </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -249,7 +249,7 @@ function strrep($str){
     <!-- app-root @e -->
     <!-- JavaScript -->
     <script src="../assets/js/bundle.js?ver=2.4.0"></script>
-    <script src="../assets/js/scripts.js?ver=2.4.0"></script>
+    <script src="../js/scripts.js?ver=2.4.2"></script>
     <script src="../assets/js/charts/gd-default.js?ver=2.4.0"></script>
 
 
@@ -603,4 +603,8 @@ function strrep($str){
 
 </body>
 
+
+
+<script>
+</script>
 </html>

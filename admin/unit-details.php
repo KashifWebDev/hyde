@@ -153,7 +153,7 @@ if(isset($_POST["warranty_email"])){
                     <div class="row">
                         <div class="col-md-4 pl-6">
                             <ul class="list-group mt-4">
-                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Apartment Number: </span><?=$apart["name"]?></p>
+                                <p class="text-white ubuntu fs-15px"><span class="fw-bold">Unit Number: </span><?=$apart["name"]?></p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Pack: </span><?=$row["pack"]?></p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Quantity: </span><?=$row["qty"] == 0 ? 'ALL' : $row["qty"]?></p>
                                 <p class="text-white ubuntu fs-15px"><span class="fw-bold">Location: </span><?=$row["location"]?></p>

@@ -10,6 +10,7 @@ if (isset($_POST["sendMail"])) {
     $propertyAddress = $_POST['property-address'];
     $isTenanted = $_POST['is-tenanted'];
     $keysAvailable = $_POST['keys-available'];
+    $keysAvailable = $_POST['keys-available'];
     $tenantName = isset($_POST['tenant-name']) ? $_POST['tenant-name'] : '';
     $tenantEmail = isset($_POST['tenant-email']) ? $_POST['tenant-email'] : '';
     $tenantPhone = isset($_POST['tenant-phone']) ? $_POST['tenant-phone'] : '';
@@ -20,7 +21,7 @@ if (isset($_POST["sendMail"])) {
     $notes = $_POST['notes'];
 
     // Email detail
-    $to = "kmalik748@gmail.com";
+    $to = "hello@hydeinteriors.ie";
     $subject = "New Billable Order - HYDE Portal";
 
     // Email content
@@ -41,7 +42,7 @@ if (isset($_POST["sendMail"])) {
         <p><strong>Tenant's Name:</strong> $tenantName</p>
         <p><strong>Tenant's Email:</strong> $tenantEmail</p>
         <p><strong>Tenant's Phone Number:</strong> $tenantPhone</p>
-        <p><strong>Who Will Hyde Make the Invoice Out To?:</strong> $invoiceTo</p>
+        <p><strong>Who Will HYDE Make the Invoice Out To?:</strong> $invoiceTo</p>
         <p><strong>Purchase Order/Order Reference:</strong> $orderReference</p>
         <p><strong>Please Pick a Delivery Date:</strong> $deliveryDate</p>
         <p><strong>Preferred Time for Delivery:</strong> $deliveryTime</p>
@@ -56,6 +57,7 @@ if (isset($_POST["sendMail"])) {
     $headers .= 'From: <portal@hyde.com>' . "\r\n"; //
 
     if (mail($to, $subject, $message, $headers)) {
+        msgToClient($agentsEmail, $agentsName);
         $form1 = true;
     } else {
         echo "Failed to send email.";
@@ -70,6 +72,7 @@ if(isset($_POST["warranty_email"])){
     $propertyAddress = $_POST['property-address'];
     $isTenanted = $_POST['is-tenanted'];
     $keysAvailable = isset($_POST['w-keys-available']) ? $_POST['w-keys-available'] : '';
+    $accessInst = $_POST['access-instr-1'];
     $tenantName = isset($_POST['tenant-name']) ? $_POST['tenant-name'] : '';
     $tenantEmail = isset($_POST['tenant-email']) ? $_POST['tenant-email'] : '';
     $tenantPhone = isset($_POST['tenant-phone']) ? $_POST['tenant-phone'] : '';
@@ -80,7 +83,7 @@ if(isset($_POST["warranty_email"])){
     $notes = $_POST['notes'];
 
     // Email details
-    $to = "kmalik748@gmail.com";
+    $to = "hello@hydeinteriors.ie";
     $subject = "Warranty Request - HYDE Portal";
 
     // Email content
@@ -98,6 +101,7 @@ if(isset($_POST["warranty_email"])){
         <p><strong>Property Address:</strong> $propertyAddress</p>
         <p><strong>Is the Property Tenanted?:</strong> $isTenanted</p>
         <p><strong>Are the Keys Available for Collection?:</strong> $keysAvailable</p>
+        <p><strong>Acess Instructions:</strong> $accessInst</p>
         <p><strong>Tenant's Name:</strong> $tenantName</p>
         <p><strong>Tenant's Email:</strong> $tenantEmail</p>
         <p><strong>Tenant's Phone Number:</strong> $tenantPhone</p>
@@ -115,12 +119,39 @@ if(isset($_POST["warranty_email"])){
     $headers .= 'From: <portal@hyde.com>' . "\r\n";
 
     if (mail($to, $subject, $message, $headers)) {
+        msgToClient($agentsEmail, $agentsName);
         $form1 = true;
     } else {
         echo "Failed to send warranty request.";
     }
 }
 
+
+function msgToClient($to, $name){
+    $to = "hello@hydeinteriors.ie";
+    $subject = "Warranty Request - HYDE Portal";
+
+    $message = "
+    <html>
+    <head>
+        <title>Warranty Request - HYDE Portal</title>
+    </head>
+    <body>
+        <h2>Thanks $name!</h2>
+        <p>We will be in touch regarding your request shortly.</p>
+        
+        <p>Regards,</p>
+        <p>HYDE Inventory Team.</p>
+    </body>
+    </html>
+    ";
+
+    $headers = "MIME-Version: 1.0" . "\r\n";
+    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+    $headers .= 'From: <portal@hyde.com>' . "\r\n";
+
+    mail($to, $subject, $message, $headers);
+}
 
 ?>
 <!DOCTYPE html>
@@ -148,7 +179,7 @@ if(isset($_POST["warranty_email"])){
                             <div class="container mb-4">
                                 <div class="example-alert">
                                     <div class="alert alert-fill alert-success alert-icon">
-                                        <em class="icon ni ni-check-circle"></em> <strong>Mail was Sent!</strong> Our team will come back with a quotation within 24 hours.</div>
+                                        <em class="icon ni ni-check-circle"></em> <strong>Message Received With Thanks!</strong> </div>
                                 </div>
                             </div>
                         <?php } ?>
@@ -163,7 +194,7 @@ if(isset($_POST["warranty_email"])){
                                             </button>
                                             <button  type='button' class='btn btn-success lightColorBg nowFont fs-17px btnHover mt-4' data-toggle='modal'
                                                      data-target='#modalTabs2'  data-backdrop="static" data-keyboard="false">
-                                                Warranty Replacement
+                                                Warranty Request
                                             </button>
                                         </div>
                                     </div>
@@ -258,6 +289,14 @@ if(isset($_POST["warranty_email"])){
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-lg-12" id="access-instr-1" style="display: none">
+                                            <div class="form-group">
+                                                <label class="form-label" for="access-instr-1">Access Instructions:</label>
+                                                <div class="form-control-wrap">
+                                                    <textarea class="form-control" id="access-instr-1" name="access-instr-1" rows="4"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="col-lg-6" id="tenant-name-group" style="display: none;">
                                             <div class="form-group">
                                                 <label class="form-label" for="tenant-name">Tenant's Name</label>
@@ -284,7 +323,7 @@ if(isset($_POST["warranty_email"])){
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
-                                                <label class="form-label" for="invoice-to">Who Will Hyde Make the Invoice Out To?</label>
+                                                <label class="form-label" for="invoice-to">Who Will HYDE Make the Invoice Out To?</label>
                                                 <div class="form-control-wrap">
                                                     <input type="text" class="form-control" id="invoice-to" name="invoice-to">
                                                 </div>
@@ -420,6 +459,14 @@ if(isset($_POST["warranty_email"])){
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-lg-12" id="access-instr-2" style="display: none">
+                                            <div class="form-group">
+                                                <label class="form-label" for="access-instr-2">Access Instructions:</label>
+                                                <div class="form-control-wrap">
+                                                    <textarea class="form-control" id="access-instr-2" name="access-instr-2" rows="4"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="col-lg-6" id="w-tenant-name-group" style="display: none;">
                                             <div class="form-group">
                                                 <label class="form-label" for="w-tenant-name">Tenant's Name</label>
@@ -512,7 +559,7 @@ if(isset($_POST["warranty_email"])){
                                     </div>
                                     <div class="example-alert mt-2">
                                         <div class="alert alert-primary alert-icon">
-                                            <em class="icon ni ni-alert-circle"></em> <strong>To Note: </strong>If this item is not covered under warranty, a callout fee of €95 will be applicable.</div>
+                                            <em class="icon ni ni-alert-circle"></em> <strong>To Note: </strong>If this item is not covered by warranty, a callout fee of €95 ex VAT will be applicable and replacement items will be quoted as usual.</div>
                                     </div>
                                 </form>
                             </div>
@@ -554,6 +601,10 @@ if(isset($_POST["warranty_email"])){
             var keys_lock = document.getElementById('keys-loc');
             var keys_lock_1 = document.getElementById('keys-loc-1');
 
+            var access_instruction_1 = document.getElementById('access-instr-1');
+            var access_instruction_2 = document.getElementById('access-instr-2');
+            access_instruction_1.style.display = 'none';
+            access_instruction_2.style.display = 'none';
 
             keys_lock.style.display = 'none';
             keys_lock_1.style.display = 'none';
@@ -573,13 +624,17 @@ if(isset($_POST["warranty_email"])){
 
             if (w_keys_available === 'yes') {
                 keys_lock.style.display = 'block';
+                access_instruction_1.style.display = 'none';
             } else {
                 keys_lock.style.display = 'none';
+                access_instruction_1.style.display = 'block';
             }
             if (keys_available1 === 'yes') {
                 keys_lock_1.style.display = 'block';
+                access_instruction_2.style.display = 'none';
             } else {
                 keys_lock_1.style.display = 'none';
+                access_instruction_2.style.display = 'block';
             }
 
             // Toggle 'Tenant's Name', 'Tenant's Email', and 'Tenant's Phone Number' based on 'Is the Property Tenanted?' selection
@@ -615,6 +670,14 @@ if(isset($_POST["warranty_email"])){
         document.getElementById('w-keys-available').addEventListener('change', toggleFields);
         document.getElementById('keys-available-1').addEventListener('change', toggleFields);
         toggleFields(); // Call the function initially to set the initial state
+
+
+
+
+        var access_instruction_1 = document.getElementById('access-instr-1');
+        var access_instruction_2 = document.getElementById('access-instr-2');
+        access_instruction_1.style.display = 'none';
+        access_instruction_2.style.display = 'none';
     </script>
 </body>
 

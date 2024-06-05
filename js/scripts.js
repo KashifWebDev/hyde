@@ -3,19 +3,19 @@
     NioApp.Package.name = "DashLite";
     NioApp.Package.version = "2.3";
 
-    var $win = $(window), $body = $('body'), $doc = $(document), 
+    var $win = $(window), $body = $('body'), $doc = $(document),
 
     //class names
     _body_theme  = 'nio-theme',
     _menu        = 'nk-menu',
     _mobile_nav  = 'mobile-menu',
-    _header      = 'nk-header', 
-    _header_menu = 'nk-header-menu', 
-    _sidebar     = 'nk-sidebar', 
-    _sidebar_mob = 'nk-sidebar-mobile', 
+    _header      = 'nk-header',
+    _header_menu = 'nk-header-menu',
+    _sidebar     = 'nk-sidebar',
+    _sidebar_mob = 'nk-sidebar-mobile',
     //breakpoints
     _break       = NioApp.Break;
-    
+
     function extend(obj, ext) {
         Object.keys(ext).forEach(function(key) { obj[key] = ext[key]; });
         return obj;
@@ -42,7 +42,7 @@
 
     // Copied @v1.0
     NioApp.Copied = function() {
-        var clip   = '.clipboard-init', target = '.clipboard-text', 
+        var clip   = '.clipboard-init', target = '.clipboard-text',
             sclass = 'clipboard-success', eclass = 'clipboard-error';
 
         // Feedback
@@ -54,9 +54,9 @@
                 copy.done = (data.done) ? data.done : copy.done;
                 copy.fail = (data.fail) ? data.fail : copy.fail;
 
-            var copytext = (state==='success') ? copy.done : copy.fail, 
+            var copytext = (state==='success') ? copy.done : copy.fail,
                 addclass = (state==='success') ? sclass : eclass;
-            
+
             $elp.addClass(addclass).find(target).html(copytext);
 
             setTimeout(function(){
@@ -69,7 +69,7 @@
         if(ClipboardJS.isSupported()){
             var clipboard = new ClipboardJS(clip);
             clipboard.on('success', function(e) {
-                feedback(e.trigger, 'success'); 
+                feedback(e.trigger, 'success');
                 e.clearSelection();
             }).on('error', function(e) {
                 feedback(e.trigger, 'error');
@@ -83,7 +83,7 @@
     NioApp.CurrentLink = function(){
         var _link = '.nk-menu-link, .menu-link, .nav-link',
             _currentURL = window.location.href,
-            fileName = _currentURL.substring(0, (_currentURL.indexOf("#") == -1) ? _currentURL.length : _currentURL.indexOf("#")), 
+            fileName = _currentURL.substring(0, (_currentURL.indexOf("#") == -1) ? _currentURL.length : _currentURL.indexOf("#")),
             fileName = fileName.substring(0, (fileName.indexOf("?") == -1) ? fileName.length : fileName.indexOf("?"));
 
         $(_link).each(function() {
@@ -103,14 +103,14 @@
         NioApp.Passcode('.passcode-switch');
     };
 
-    // Toastr Message @v1.0 
+    // Toastr Message @v1.0
     NioApp.Toast = function (msg, ttype, opt) {
         var ttype   = (ttype) ? ttype : 'info', msi = '',
-            ticon   = (ttype==='info') ? 'ni ni-info-fill' : ((ttype==='success') ? 'ni ni-check-circle-fill' : ((ttype==='error') ? 'ni ni-cross-circle-fill' : ((ttype==='warning') ? 'ni ni-alert-fill' : '') ) ), 
+            ticon   = (ttype==='info') ? 'ni ni-info-fill' : ((ttype==='success') ? 'ni ni-check-circle-fill' : ((ttype==='error') ? 'ni ni-cross-circle-fill' : ((ttype==='warning') ? 'ni ni-alert-fill' : '') ) ),
             def     = {position:'bottom-right', ui: '', icon: 'auto', clear: false}, attr = (opt) ? extend(def, opt) : def;
 
             attr.position = (attr.position) ? 'toast-'+attr.position : 'toast-bottom-right';
-            attr.icon = (attr.icon==='auto') ? ticon : ((attr.icon) ? attr.icon : '' ); 
+            attr.icon = (attr.icon==='auto') ? ticon : ((attr.icon) ? attr.icon : '' );
             attr.ui = (attr.ui) ? ' '+ attr.ui : '';
 
             msi  = (attr.icon!=='') ? '<span class="toastr-icon"><em class="icon '+ attr.icon +'"></em></span>' : '',
@@ -139,7 +139,7 @@
 
     // Toggle Screen @v1.0
     NioApp.TGL.screen = function (elm){
-        if($(elm).exists()) {        
+        if($(elm).exists()) {
             $(elm).each(function(){
                 var ssize = $(this).data('toggle-screen');
                 if(ssize){ $(this).addClass('toggle-screen-' + ssize ); }
@@ -149,7 +149,7 @@
 
     // Toggle Content @v1.0
     NioApp.TGL.content = function (elm, opt){
-        var toggle = (elm) ? elm : '.toggle', $toggle = $(toggle), $contentD = $('[data-content]'), 
+        var toggle = (elm) ? elm : '.toggle', $toggle = $(toggle), $contentD = $('[data-content]'),
             toggleBreak = true, toggleCurrent = false, def = { active: 'active', content: 'content-active', break: toggleBreak}, attr = (opt) ? extend(def, opt) : def;
 
         NioApp.TGL.screen($contentD);
@@ -175,9 +175,9 @@
         $win.on('resize', function(){
             $contentD.each(function(){
                 var content = $(this).data('content'), ssize = $(this).data('toggle-screen'), toggleBreak = _break[ssize];
-                if(NioApp.Win.width > toggleBreak){ 
+                if(NioApp.Win.width > toggleBreak){
                     NioApp.Toggle.removed(content, attr);
-                } 
+                }
             });
         });
     };
@@ -210,8 +210,8 @@
     NioApp.TGL.showmenu = function(elm, opt){
         var toggle = (elm) ? elm : '.nk-nav-toggle', $toggle = $(toggle), $contentD = $('[data-content]'),
             toggleBreak = $contentD.hasClass(_header_menu) ? _break.lg : _break.xl,
-            toggleOlay = _sidebar + '-overlay', toggleClose = {profile: true, menu: false}, 
-            def = { active: 'toggle-active', content: _sidebar + '-active', body: 'nav-shown', overlay: toggleOlay, break: toggleBreak, close: toggleClose }, 
+            toggleOlay = _sidebar + '-overlay', toggleClose = {profile: true, menu: false},
+            def = { active: 'toggle-active', content: _sidebar + '-active', body: 'nav-shown', overlay: toggleOlay, break: toggleBreak, close: toggleClose },
             attr = (opt) ? extend(def, opt) : def;
 
         $toggle.on('click', function(e){
@@ -226,9 +226,9 @@
         });
 
         $win.on('resize', function(){
-            if(NioApp.Win.width < _break.xl || NioApp.Win.width < toggleBreak ){ 
+            if(NioApp.Win.width < _break.xl || NioApp.Win.width < toggleBreak ){
                 NioApp.Toggle.removed($toggle.data('target'), attr);
-            } 
+            }
         });
     };
 
@@ -238,7 +238,7 @@
 
         $toggle.on('click', function(e){
             e.preventDefault();
-            var $self = $(this), get_target = $self.data('target'), 
+            var $self = $(this), get_target = $self.data('target'),
                 $self_content = $('[data-content=' + get_target + ']');
 
                 $self.toggleClass('compact-active');
@@ -305,8 +305,8 @@
             $(elm).each(function(){
                 var $self = $(this);
 
-                if($self.val()){ 
-                    $self.parent().addClass(attr.focus); 
+                if($self.val()){
+                    $self.parent().addClass(attr.focus);
                 }
                 $self.on({
                     focus: function(){
@@ -331,7 +331,7 @@
     };
 
     NioApp.Validate.init = function() {
-        NioApp.Validate('.form-validate', 
+        NioApp.Validate('.form-validate',
         {
             errorElement: "span",
             errorClass: "invalid",
@@ -353,7 +353,7 @@
                         maxFiles:maxFiles,
                         maxFilesize: maxFileSize,
                         acceptedFiles: acceptedFiles
-                    }, 
+                    },
                     attr = (opt) ? extend(def, opt) : def;
                 $(this).addClass('dropzone').dropzone(attr);
             });
@@ -401,7 +401,7 @@
                 return $wizard.valid();
             },
             onFinished: function (event, currentIndex){window.location.href = "#";}
-            
+
         }).validate({
             errorElement: "span",
             errorClass: "invalid",
@@ -416,13 +416,14 @@
         if ($(elm).exists()) {
             $(elm).each(function(){
                 var auto_responsive = $(this).data('auto-responsive');
-                var dom_normal = '<"row justify-between g-2"<"col-7 col-sm-6 text-left"f><"col-5 col-sm-6 text-right"<"datatable-filter"l>>><"datatable-wrap my-3"t><"row align-items-center"<"col-7 col-sm-12 col-md-9"p><"col-5 col-sm-12 col-md-3 text-left text-md-right"i>>'; 
-                var dom_separate = '<"row justify-between g-2"<"col-7 col-sm-6 text-left"f><"col-5 col-sm-6 text-right"<"datatable-filter"l>>><"my-3"t><"row align-items-center"<"col-7 col-sm-12 col-md-9"p><"col-5 col-sm-12 col-md-3 text-left text-md-right"i>>'; 
+                var dom_normal = '<"row justify-between g-2"<"col-7 col-sm-6 text-left"f><"col-5 col-sm-6 text-right"<"datatable-filter"l>>><"datatable-wrap my-3"t><"row align-items-center"<"col-7 col-sm-12 col-md-9"p><"col-5 col-sm-12 col-md-3 text-left text-md-right"i>>';
+                var dom_separate = '<"row justify-between g-2"<"col-7 col-sm-6 text-left"f><"col-5 col-sm-6 text-right"<"datatable-filter"l>>><"my-3"t><"row align-items-center"<"col-7 col-sm-12 col-md-9"p><"col-5 col-sm-12 col-md-3 text-left text-md-right"i>>';
                 var dom = $(this).hasClass('is-separate') ? dom_separate : dom_normal;
                 var def = {
                         responsive: true,
                         autoWidth: false,
                         dom: dom,
+                        pageLength: 100, // Set default page length here
                         language: {
                             search : "",
                             searchPlaceholder: "Type in to Search",
@@ -437,7 +438,7 @@
                                 "previous":   "Prev"
                             },
                         }
-                    }, 
+                    },
                     attr = (opt) ? extend(def, opt) : def;
                     attr =(auto_responsive === false) ?  extend(attr, {responsive: false}) : attr;
 
@@ -463,7 +464,7 @@
             ex = (exc) ? exc : 'a:not(.clickable), button:not(.clickable), a:not(.clickable) *, button:not(.clickable) *';
 
         $(dd).on('click', function (e) {
-            if(!$(e.target).is(ex)){ 
+            if(!$(e.target).is(ex)){
                 e.stopPropagation();
                 return;
             }
@@ -532,10 +533,10 @@
     // Knob Init @v1.0
     NioApp.Knob.init = function() {
         var knob = {
-                default: {readOnly: true, lineCap: "round"}, 
-                half: { angleOffset: -90, angleArc: 180, readOnly: true, lineCap: "round"} 
+                default: {readOnly: true, lineCap: "round"},
+                half: { angleOffset: -90, angleArc: 180, readOnly: true, lineCap: "round"}
             };
-        
+
         NioApp.Knob('.knob', knob.default);
         NioApp.Knob('.knob-half', knob.half);
     };
@@ -554,7 +555,7 @@
                             'min': 0,
                             'max': 100
                         }
-                    }, 
+                    },
                     attr = (opt) ? extend(def, opt) : def;
 
                 noUiSlider.create(target, attr);
@@ -580,7 +581,7 @@
                         'prevArrow':'<div class="slick-arrow-prev"><a href="javascript:void(0);" class="slick-prev"><em class="icon ni ni-chevron-left"></em></a></div>',
                         'nextArrow':'<div class="slick-arrow-next"><a href="javascript:void(0);" class="slick-next"><em class="icon ni ni-chevron-right"></em></a></div>',
                         rtl: NioApp.State.isRTL
-                    }, 
+                    },
                     attr = (opt) ? extend(def, opt) : def;
                 $(this).slick(attr);
             });
@@ -592,7 +593,7 @@
         NioApp.Slick('.slider-init');
     };
 
-    // Number Spinner 
+    // Number Spinner
     NioApp.NumberSpinner = function(elm, opt) {
         var plus = document.querySelectorAll("[data-number='plus']");
         var minus = document.querySelectorAll("[data-number='minus']");
@@ -648,7 +649,7 @@
         NioApp.SetHW('[data-width]', 'width');
         NioApp.NumberSpinner();
     };
-    
+
     // Animate Init @v1.0
     NioApp.Ani.init = function() {
         NioApp.Ani.formElm('.form-control-outlined');
@@ -673,7 +674,7 @@
     // Picker Init @v1.0
     NioApp.Picker.init = function() {
         NioApp.Picker.date('.date-picker');
-        NioApp.Picker.dob('.date-picker-alt'); 
+        NioApp.Picker.dob('.date-picker-alt');
         NioApp.Picker.time('.time-picker');
         NioApp.Picker.date('.date-picker-range', {
             todayHighlight: false,
@@ -696,10 +697,10 @@
     // Toggler @v1
     NioApp.TGL.init = function() {
         NioApp.TGL.content('.toggle');
-        NioApp.TGL.expand('.toggle-expand'); 
-        NioApp.TGL.expand('.toggle-opt', {toggle: false}); 
+        NioApp.TGL.expand('.toggle-expand');
+        NioApp.TGL.expand('.toggle-opt', {toggle: false});
         NioApp.TGL.showmenu('.nk-nav-toggle');
-        NioApp.TGL.ddmenu('.'+ _menu + '-toggle', {self: _menu + '-toggle', child: _menu + '-sub' }); 
+        NioApp.TGL.ddmenu('.'+ _menu + '-toggle', {self: _menu + '-toggle', child: _menu + '-sub' });
     };
 
     NioApp.BS.modalOnInit = function() {
