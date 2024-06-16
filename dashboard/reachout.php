@@ -24,6 +24,45 @@ if (isset($_POST["sendMail"])) {
     $to = "hello@hydeinteriors.ie";
     $subject = "New Billable Order - HYDE Portal";
 
+
+    $targetDir = "../images/site/form/";
+    // Create the directory if it doesn't exist
+    if (!is_dir($targetDir)) {
+        mkdir($targetDir, 0755, true);
+    }
+    $uploadStatus = [
+        'success' => [],
+        'error' => []
+    ];
+    $pics = [];
+    // Loop through each uploaded file
+    foreach ($_FILES['images']['name'] as $key => $name) {
+        $targetFilePath = $targetDir . basename($name);
+        $fileType = strtolower(pathinfo($targetFilePath, PATHINFO_EXTENSION));
+
+        // Check if file is an image
+        $check = getimagesize($_FILES['images']['tmp_name'][$key]);
+        if ($check !== false) {
+            // Move the file to the target directory
+            if (move_uploaded_file($_FILES['images']['tmp_name'][$key], $targetFilePath)) {
+                $uploadStatus['success'][] = "The file $name has been uploaded.";
+                $pics[] = $name;
+            } else {
+                $uploadStatus['error'][] = "Sorry, there was an error uploading your file $name.";
+            }
+        } else {
+            $uploadStatus['error'][] = "$name is not an image.";
+        }
+    }
+    // Display upload status
+    $links = "";
+    if (!empty($uploadStatus['success'])) {
+        echo "Uploaded successfully:<br>";
+        foreach ($pics as $pic) {
+            $links .= "<a href='https://inventory.hydecontract.ie/images/site/form/" . $pic . "' target='_blank'>" . $pic . "</a><br>";
+        }
+    }
+
     // Email content
     $message = "
     <html>
@@ -47,6 +86,7 @@ if (isset($_POST["sendMail"])) {
         <p><strong>Please Pick a Delivery Date:</strong> $deliveryDate</p>
         <p><strong>Preferred Time for Delivery:</strong> $deliveryTime</p>
         <p><strong>Notes:</strong> $notes</p>
+        <p><strong>Photos:</strong> $links</p>
     </body>
     </html>
     ";
@@ -86,6 +126,45 @@ if(isset($_POST["warranty_email"])){
     $to = "hello@hydeinteriors.ie";
     $subject = "Warranty Request - HYDE Portal";
 
+
+    $targetDir = "../images/site/form/";
+    // Create the directory if it doesn't exist
+    if (!is_dir($targetDir)) {
+        mkdir($targetDir, 0755, true);
+    }
+    $uploadStatus = [
+        'success' => [],
+        'error' => []
+    ];
+    $pics = [];
+    // Loop through each uploaded file
+    foreach ($_FILES['images']['name'] as $key => $name) {
+        $targetFilePath = $targetDir . basename($name);
+        $fileType = strtolower(pathinfo($targetFilePath, PATHINFO_EXTENSION));
+
+        // Check if file is an image
+        $check = getimagesize($_FILES['images']['tmp_name'][$key]);
+        if ($check !== false) {
+            // Move the file to the target directory
+            if (move_uploaded_file($_FILES['images']['tmp_name'][$key], $targetFilePath)) {
+                $uploadStatus['success'][] = "The file $name has been uploaded.";
+                $pics[] = $name;
+            } else {
+                $uploadStatus['error'][] = "Sorry, there was an error uploading your file $name.";
+            }
+        } else {
+            $uploadStatus['error'][] = "$name is not an image.";
+        }
+    }
+    // Display upload status
+    $links = "";
+    if (!empty($uploadStatus['success'])) {
+        echo "Uploaded successfully:<br>";
+        foreach ($pics as $pic) {
+            $links .= "<a href='https://inventory.hydecontract.ie/images/site/form/" . $pic . "' target='_blank'>" . $pic . "</a><br>";
+        }
+    }
+
     // Email content
     $message = "
     <html>
@@ -110,6 +189,7 @@ if(isset($_POST["warranty_email"])){
         <p><strong>Please Pick a Delivery Date:</strong> $deliveryDate</p>
         <p><strong>Preferred Time for Inspection:</strong> $inspectionTime</p>
         <p><strong>Notes:</strong> $notes</p>
+        <p><strong>Photos:</strong> $links</p>
     </body>
     </html>
     ";
@@ -190,7 +270,7 @@ function msgToClient($to, $name){
                                         <div class="col-md-5 justify-around align-items-center h-100">
                                             <button  type='button' class='btn btn-success lightColorBg nowFont fs-17px btnHover mt-4' data-toggle='modal'
                                                      data-target='#modalTabs'  data-backdrop="static" data-keyboard="false">
-                                                New Billable Order
+                                                New Order
                                             </button>
                                             <button  type='button' class='btn btn-success lightColorBg nowFont fs-17px btnHover mt-4' data-toggle='modal'
                                                      data-target='#modalTabs2'  data-backdrop="static" data-keyboard="false">
@@ -212,7 +292,7 @@ function msgToClient($to, $name){
                         <div class="modal-content">
                             <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
                             <div class="modal-body modal-body-md">
-                                <form action="" method="post">
+                                <form action="" method="post"  enctype="multipart/form-data">
                                     <div class="row g-4">
                                         <div class="col-12">
                                             <h4 class="center">NEW BILLABLE ORDER</h4>
@@ -367,6 +447,17 @@ function msgToClient($to, $name){
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
+                                                <label class="form-label" for="customMultipleFilesLabel">Upload Photos</label>
+                                                <div class="form-control-wrap">
+                                                    <div class="custom-file">
+                                                        <input type="file" multiple class="custom-file-input" id="customMultipleFiles" accept="image/*" name="images[]">
+                                                        <label class="custom-file-label" for="customMultipleFiles">Choose files</label>
+                                                    </div>
+                                                </div>
+                                             </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
                                                 <button type="submit" class="btn btn-lg btn-primary" name="sendMail">Save Information</button>
                                             </div>
                                         </div>
@@ -382,7 +473,7 @@ function msgToClient($to, $name){
                         <div class="modal-content">
                             <a href="#" class="close" data-dismiss="modal"><em class="icon ni ni-cross-sm"></em></a>
                             <div class="modal-body modal-body-md">
-                                <form action="" method="post">
+                                <form action="" method="post"  enctype="multipart/form-data">
                                     <div class="row g-4">
                                         <div class="col-12">
                                             <h4 class="center">WARRANTY REQUEST</h4>
@@ -553,6 +644,17 @@ function msgToClient($to, $name){
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
+                                                <label class="form-label" for="customMultipleFilesLabel">Upload Photos</label>
+                                                <div class="form-control-wrap">
+                                                    <div class="custom-file">
+                                                        <input type="file" multiple class="custom-file-input" id="customMultipleFiles" accept="image/*" name="images[]">
+                                                        <label class="custom-file-label" for="customMultipleFiles">Choose files</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="form-group">
                                                 <button type="submit" class="btn btn-lg btn-primary" name="warranty_email">Submit Warranty Request</button>
                                             </div>
                                         </div>
@@ -624,17 +726,17 @@ function msgToClient($to, $name){
 
             if (w_keys_available === 'yes') {
                 keys_lock.style.display = 'block';
-                access_instruction_1.style.display = 'none';
+                access_instruction_2.style.display = 'none';
             } else {
                 keys_lock.style.display = 'none';
-                access_instruction_1.style.display = 'block';
+                access_instruction_2.style.display = 'block';
             }
             if (keys_available1 === 'yes') {
                 keys_lock_1.style.display = 'block';
-                access_instruction_2.style.display = 'none';
+                access_instruction_1.style.display = 'none';
             } else {
                 keys_lock_1.style.display = 'none';
-                access_instruction_2.style.display = 'block';
+                access_instruction_1.style.display = 'block';
             }
 
             // Toggle 'Tenant's Name', 'Tenant's Email', and 'Tenant's Phone Number' based on 'Is the Property Tenanted?' selection
@@ -648,7 +750,7 @@ function msgToClient($to, $name){
                 tenantNameGroup.style.display = 'block';
                 tenantEmailGroup.style.display = 'block';
                 tenantPhoneGroup.style.display = 'block';
-            } else {
+            } if(isTenanted === 'no') {
                 tenantNameGroup.style.display = 'none';
                 tenantEmailGroup.style.display = 'none';
                 tenantPhoneGroup.style.display = 'none';
@@ -657,7 +759,7 @@ function msgToClient($to, $name){
                 w_tenantNameGroup.style.display = 'block';
                 w_tenantEmailGroup.style.display = 'block';
                 w_tenantPhoneGroup.style.display = 'block';
-            } else {
+            } if (wIsTenanted === 'no') {
                 w_tenantNameGroup.style.display = 'none';
                 w_tenantEmailGroup.style.display = 'none';
                 w_tenantPhoneGroup.style.display = 'none';
